@@ -1,0 +1,182 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Map 2 (flow map) with a ranked bar companion: value of appliances imported into Australia in 2025 by country of origin (UN Comtrade).",
+  "params": [
+    {
+      "name": "cat",
+      "value": "All appliances",
+      "bind": {
+        "input": "select",
+        "name": "Appliance: ",
+        "options": [
+          "All appliances",
+          "Vacuum cleaners",
+          "Ovens, cookers & air fryers",
+          "Coffee & tea makers",
+          "Blenders & food mixers",
+          "Microwave ovens",
+          "Fridges",
+          "Fridge-freezers",
+          "Washing machines",
+          "Clothes dryers",
+          "Dishwashers",
+          "Split-system air conditioners",
+          "Televisions"
+        ]
+      }
+    }
+  ],
+  "data": {
+    "url": "data/import_flows_2025.csv",
+    "format": {
+      "type": "csv",
+      "parse": {"iso": "number", "lon": "number", "lat": "number", "value_usd_m": "number"}
+    }
+  },
+  "transform": [
+    {"filter": "cat == 'All appliances' || datum.category == cat"},
+    {
+      "aggregate": [{"op": "sum", "field": "value_usd_m", "as": "value"}],
+      "groupby": ["country", "iso", "lon", "lat"]
+    },
+    {"joinaggregate": [{"op": "sum", "field": "value", "as": "total"}]},
+    {"calculate": "datum.value / datum.total", "as": "share"}
+  ],
+  "hconcat": [
+    {
+      "width": 620,
+      "height": 400,
+      "projection": {"type": "equalEarth", "rotate": [-115, 0]},
+      "layer": [
+        {
+          "data": {
+            "url": "data/world-110m.json",
+            "format": {"type": "topojson", "feature": "countries"}
+          },
+          "transform": [],
+          "mark": {"type": "geoshape", "fill": "#e7e5e0", "stroke": "#fcfcfb", "strokeWidth": 0.5}
+        },
+        {
+          "data": {
+            "url": "data/world-110m.json",
+            "format": {"type": "topojson", "feature": "countries"}
+          },
+          "transform": [{"filter": "datum.id == 36"}],
+          "mark": {"type": "geoshape", "fill": "#eb6834", "opacity": 0.85}
+        },
+        {
+          "transform": [
+            {"filter": "datum.value >= 1"},
+            {
+              "calculate": "{'type': 'Feature', 'geometry': {'type': 'LineString', 'coordinates': [[datum.lon, datum.lat], [146, -32]]}, 'properties': {}}",
+              "as": "route"
+            }
+          ],
+          "mark": {"type": "geoshape", "filled": false, "strokeCap": "round", "opacity": 0.55},
+          "encoding": {
+            "shape": {"field": "route", "type": "geojson"},
+            "strokeWidth": {
+              "field": "value",
+              "type": "quantitative",
+              "scale": {"type": "sqrt", "range": [0.6, 14], "zero": true},
+              "legend": null
+            },
+            "color": {"value": "#2a78d6"},
+            "tooltip": [
+              {"field": "country", "title": "From"},
+              {"field": "value", "title": "Value (US$ million)", "format": "$,.1f"},
+              {"field": "share", "title": "Share of Australia's imports", "format": ".1%"}
+            ]
+          }
+        },
+        {
+          "transform": [{"filter": "datum.value >= 1"}],
+          "mark": {
+            "type": "circle",
+            "color": "#1c5cab",
+            "opacity": 0.9,
+            "stroke": "#fcfcfb",
+            "strokeWidth": 1
+          },
+          "encoding": {
+            "longitude": {"field": "lon", "type": "quantitative"},
+            "latitude": {"field": "lat", "type": "quantitative"},
+            "size": {
+              "field": "value",
+              "type": "quantitative",
+              "scale": {"type": "sqrt", "range": [10, 500], "zero": true},
+              "legend": null
+            },
+            "tooltip": [
+              {"field": "country", "title": "From"},
+              {"field": "value", "title": "Value (US$ million)", "format": "$,.1f"},
+              {"field": "share", "title": "Share of Australia's imports", "format": ".1%"}
+            ]
+          }
+        },
+        {
+          "transform": [
+            {
+              "window": [{"op": "rank", "as": "rank"}],
+              "sort": [{"field": "value", "order": "descending"}]
+            },
+            {"filter": "datum.rank <= 3"},
+            {
+              "calculate": "datum.country == 'Thailand' ? datum.lon - 14 : datum.country == 'Vietnam' ? datum.lon + 13 : datum.lon",
+              "as": "label_lon"
+            },
+            {"calculate": "datum.country == 'China' ? datum.lat + 4 : datum.lat", "as": "label_lat"}
+          ],
+          "mark": {"type": "text", "dy": -10, "fontSize": 11, "fontWeight": 700, "color": "#1f1f1d"},
+          "encoding": {
+            "longitude": {"field": "label_lon", "type": "quantitative"},
+            "latitude": {"field": "label_lat", "type": "quantitative"},
+            "text": {"field": "country"}
+          }
+        }
+      ]
+    },
+    {
+      "width": 200,
+      "height": {"step": 22},
+      "transform": [
+        {
+          "window": [{"op": "rank", "as": "rank"}],
+          "sort": [{"field": "value", "order": "descending"}]
+        },
+        {"filter": "datum.rank <= 12"}
+      ],
+      "encoding": {
+        "y": {
+          "field": "country",
+          "type": "nominal",
+          "sort": "-x",
+          "title": null,
+          "axis": {"domain": false, "ticks": false, "labelFontSize": 12}
+        },
+        "x": {
+          "field": "share",
+          "type": "quantitative",
+          "title": "Share of import value",
+          "axis": {"format": ".0%", "tickCount": 4, "grid": true}
+        }
+      },
+      "layer": [
+        {
+          "mark": {"type": "bar", "color": "#2a78d6", "cornerRadiusEnd": 4, "height": {"band": 0.7}},
+          "encoding": {
+            "tooltip": [
+              {"field": "country", "title": "From"},
+              {"field": "value", "title": "Value (US$ million)", "format": "$,.1f"},
+              {"field": "share", "title": "Share", "format": ".1%"}
+            ]
+          }
+        },
+        {
+          "mark": {"type": "text", "align": "left", "dx": 4, "fontSize": 11, "color": "#52514e"},
+          "encoding": {"text": {"field": "share", "type": "quantitative", "format": ".0%"}}
+        }
+      ]
+    }
+  ]
+}

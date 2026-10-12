@@ -1,0 +1,199 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Map 1 (choropleth) linked to a line chart: spending on furnishings & household equipment per person by state, and each state's monthly spending compared with 2019 (ABS HSI + ABS ERP).",
+  "hconcat": [
+    {
+      "width": 380,
+      "height": 380,
+      "projection": {
+        "type": "conicEqualArea",
+        "parallels": [-18, -36],
+        "rotate": [-133, 0],
+        "center": [0, -28]
+      },
+      "data": {
+        "url": "data/abs_states_2021.topojson",
+        "format": {"type": "topojson", "feature": "states"}
+      },
+      "transform": [
+        {
+          "lookup": "properties.state_code_2021",
+          "from": {
+            "data": {
+              "url": "data/spending_per_person.csv",
+              "format": {
+                "type": "csv",
+                "parse": {"spend_12m_m": "number", "population": "number", "per_person": "number"}
+              }
+            },
+            "key": "state_code",
+            "fields": ["state", "state_name", "per_person", "spend_12m_m", "population"]
+          }
+        }
+      ],
+      "layer": [
+        {
+          "mark": {"type": "geoshape", "stroke": "#fcfcfb", "strokeWidth": 1.5, "cursor": "pointer"},
+          "encoding": {
+            "color": {
+              "field": "per_person",
+              "type": "quantitative",
+              "title": "$ per person, last 12 months",
+              "scale": {"range": ["#cde2fb", "#104281"], "domain": [2150, 2600]},
+              "legend": {
+                "orient": "bottom-left",
+                "format": "$,.0f",
+                "direction": "horizontal",
+                "gradientLength": 200
+              }
+            },
+            "strokeWidth": {
+              "condition": {"param": "pick", "empty": false, "value": 3.5},
+              "value": 1
+            },
+            "stroke": {
+              "condition": {"param": "pick", "empty": false, "value": "#eb6834"},
+              "value": "#fcfcfb"
+            },
+            "tooltip": [
+              {"field": "state_name", "title": "State"},
+              {"field": "per_person", "title": "Spent per person", "format": "$,.0f"},
+              {"field": "spend_12m_m", "title": "Total spent ($ million)", "format": "$,.0f"},
+              {"field": "population", "title": "Population", "format": ",.0f"}
+            ]
+          },
+          "params": [
+            {
+              "name": "pick",
+              "select": {"type": "point", "fields": ["state"], "on": "click", "clear": "dblclick"},
+              "value": [{"state": "VIC"}]
+            }
+          ]
+        },
+        {
+          "transform": [
+            {"calculate": "geoCentroid(null, datum)", "as": "c"},
+            {
+              "calculate": "datum.state == 'ACT' ? 152.6 : datum.state == 'TAS' ? 146.6 : datum.c[0]",
+              "as": "lon"
+            },
+            {
+              "calculate": "datum.state == 'ACT' ? -35.6 : datum.state == 'TAS' ? -42.1 : datum.state == 'NSW' ? -32.2 : datum.c[1]",
+              "as": "lat"
+            },
+            {"calculate": "datum.state + '  $' + format(datum.per_person, ',.0f')", "as": "label"}
+          ],
+          "mark": {"type": "text", "fontSize": 11, "fontWeight": 600},
+          "encoding": {
+            "longitude": {"field": "lon", "type": "quantitative"},
+            "latitude": {"field": "lat", "type": "quantitative"},
+            "text": {"field": "label"},
+            "color": {
+              "condition": {
+                "test": "datum.per_person > 2400 && datum.state != 'ACT'",
+                "value": "#ffffff"
+              },
+              "value": "#1f1f1d"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "width": 470,
+      "height": 380,
+      "data": {
+        "url": "data/spending_monthly.csv",
+        "format": {"type": "csv", "parse": {"spend_m": "number"}}
+      },
+      "transform": [
+        {"filter": "datum.state != 'Australia'"},
+        {"calculate": "toDate(datum.month + '-01T00:00:00')", "as": "date"},
+        {"calculate": "year(datum.date) == 2019 ? datum.spend_m : null", "as": "v2019"},
+        {"joinaggregate": [{"op": "mean", "field": "v2019", "as": "avg2019"}], "groupby": ["state"]},
+        {"calculate": "datum.spend_m / datum.avg2019 * 100", "as": "index"}
+      ],
+      "layer": [
+        {
+          "mark": {"type": "rule", "color": "#8c8a84", "strokeWidth": 1},
+          "encoding": {"y": {"datum": 100, "scale": {"domain": [60, 200]}}}
+        },
+        {
+          "mark": {"type": "rect", "color": "#f3e3d9", "opacity": 0.6},
+          "data": {"values": [{"start": "2020-03-23", "end": "2021-10-22"}]},
+          "encoding": {"x": {"field": "start", "type": "temporal"}, "x2": {"field": "end"}}
+        },
+        {
+          "data": {"values": [{"d": "2020-04-05", "t": "COVID-19 lockdowns"}]},
+          "mark": {
+            "type": "text",
+            "align": "left",
+            "baseline": "top",
+            "dy": 6,
+            "dx": 4,
+            "fontSize": 11,
+            "color": "#a0522d"
+          },
+          "encoding": {
+            "x": {"field": "d", "type": "temporal"},
+            "y": {"datum": 198, "scale": {"domain": [60, 200]}},
+            "text": {"field": "t"}
+          }
+        },
+        {
+          "mark": {"type": "line", "strokeWidth": 1.5, "interpolate": "monotone"},
+          "encoding": {
+            "x": {
+              "field": "date",
+              "type": "temporal",
+              "title": null,
+              "axis": {"format": "%Y", "tickCount": 8, "grid": false}
+            },
+            "y": {
+              "field": "index",
+              "type": "quantitative",
+              "title": "Monthly spending (100 = average month in 2019)",
+              "scale": {"domain": [60, 200]}
+            },
+            "detail": {"field": "state"},
+            "color": {
+              "condition": {"param": "pick", "empty": false, "value": "#eb6834"},
+              "value": "#d6d4ce"
+            },
+            "strokeWidth": {
+              "condition": {"param": "pick", "empty": false, "value": 2.5},
+              "value": 1
+            },
+            "order": {"condition": {"param": "pick", "empty": false, "value": 2}, "value": 1},
+            "tooltip": [
+              {"field": "state", "title": "State"},
+              {"field": "date", "timeUnit": "yearmonth", "title": "Month"},
+              {"field": "spend_m", "title": "Spending ($ million)", "format": "$,.0f"},
+              {"field": "index", "title": "Index (2019 = 100)", "format": ".0f"}
+            ]
+          }
+        },
+        {
+          "transform": [
+            {"filter": {"param": "pick", "empty": false}},
+            {"filter": "datum.month == '2026-08'"}
+          ],
+          "mark": {
+            "type": "text",
+            "align": "left",
+            "dx": 6,
+            "fontWeight": 700,
+            "fontSize": 13,
+            "color": "#eb6834"
+          },
+          "encoding": {
+            "x": {"field": "date", "type": "temporal"},
+            "y": {"field": "index", "type": "quantitative", "scale": {"domain": [60, 200]}},
+            "text": {"field": "state"}
+          }
+        }
+      ]
+    }
+  ],
+  "resolve": {"scale": {"color": "independent", "strokeWidth": "independent"}}
+}

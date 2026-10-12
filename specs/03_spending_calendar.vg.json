@@ -1,0 +1,62 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Calendar heatmap: Australian household spending on furnishings & household equipment by month (ABS Monthly Household Spending Indicator).",
+  "width": "container",
+  "height": {"step": 34},
+  "data": {
+    "url": "data/spending_monthly.csv",
+    "format": {"type": "csv", "parse": {"spend_m": "number"}}
+  },
+  "transform": [
+    {"filter": "datum.state == 'Australia'"},
+    {"calculate": "toDate(datum.month + '-01T00:00:00')", "as": "date"},
+    {"calculate": "year(datum.date)", "as": "year"},
+    {"calculate": "datum.spend_m / 1000", "as": "spend_b"},
+    {"joinaggregate": [{"op": "mean", "field": "spend_b", "as": "year_avg"}], "groupby": ["year"]},
+    {"calculate": "datum.spend_b / datum.year_avg - 1", "as": "vs_avg"}
+  ],
+  "encoding": {
+    "x": {
+      "field": "date",
+      "timeUnit": "month",
+      "type": "ordinal",
+      "title": null,
+      "axis": {"format": "%b", "orient": "top", "domain": false, "ticks": false, "labelAngle": 0}
+    },
+    "y": {
+      "field": "year",
+      "type": "ordinal",
+      "title": null,
+      "axis": {"domain": false, "ticks": false}
+    }
+  },
+  "layer": [
+    {
+      "mark": {"type": "rect", "cornerRadius": 3, "stroke": "#fcfcfb", "strokeWidth": 2},
+      "encoding": {
+        "color": {
+          "field": "spend_b",
+          "type": "quantitative",
+          "title": "Spending ($ billion per month)",
+          "scale": {"range": ["#cde2fb", "#104281"], "domain": [3.2, 6.7]},
+          "legend": {
+            "orient": "bottom",
+            "direction": "horizontal",
+            "gradientLength": 260,
+            "format": "$.1f"
+          }
+        },
+        "tooltip": [
+          {"field": "date", "timeUnit": "yearmonth", "title": "Month"},
+          {"field": "spend_b", "title": "Spending ($ billion)", "format": "$.2f"},
+          {"field": "vs_avg", "title": "vs that year's monthly average", "format": "+.0%"}
+        ]
+      }
+    },
+    {
+      "transform": [{"filter": "month(datum.date) >= 10"}],
+      "mark": {"type": "text", "fontSize": 10, "fontWeight": 600, "color": "#ffffff"},
+      "encoding": {"text": {"field": "vs_avg", "type": "quantitative", "format": "+.0%"}}
+    }
+  ]
+}

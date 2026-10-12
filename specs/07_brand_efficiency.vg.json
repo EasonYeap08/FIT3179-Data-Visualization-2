@@ -1,0 +1,204 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Brand heatmap linked to a jittered strip plot: how many stars each brand's models earn compared with the typical model of that type, and every model's yearly energy use (Energy Rating registration data).",
+  "data": {
+    "url": "data/models.csv",
+    "format": {"type": "csv", "parse": {"stars": "number", "kwh": "number", "size": "number"}}
+  },
+  "transform": [
+    {
+      "joinaggregate": [{"op": "median", "field": "stars", "as": "type_median"}],
+      "groupby": ["type"]
+    },
+    {"calculate": "datum.stars - datum.type_median", "as": "rel"}
+  ],
+  "vconcat": [
+    {
+      "width": 560,
+      "height": {"step": 24},
+      "transform": [
+        {
+          "filter": {
+            "field": "brand",
+            "oneOf": [
+              "Kogan",
+              "Samsung",
+              "LG",
+              "Hisense",
+              "Fisher & Paykel",
+              "CHiQ",
+              "Haier",
+              "Westinghouse",
+              "Smeg",
+              "Miele",
+              "TCL",
+              "Electrolux",
+              "Bosch",
+              "Esatto",
+              "Inalto",
+              "Solt"
+            ]
+          }
+        },
+        {
+          "aggregate": [
+            {"op": "median", "field": "rel", "as": "rel_median"},
+            {"op": "count", "as": "n"},
+            {"op": "median", "field": "kwh", "as": "kwh_median"}
+          ],
+          "groupby": ["brand", "type"]
+        },
+        {
+          "joinaggregate": [{"op": "mean", "field": "rel_median", "as": "brand_score"}],
+          "groupby": ["brand"]
+        }
+      ],
+      "encoding": {
+        "x": {
+          "field": "type",
+          "type": "nominal",
+          "title": null,
+          "sort": [
+            "Fridges & freezers",
+            "Washing machines",
+            "Clothes dryers",
+            "Dishwashers",
+            "Televisions"
+          ],
+          "axis": {
+            "orient": "top",
+            "labelAngle": 0,
+            "domain": false,
+            "ticks": false,
+            "labelFontWeight": 600
+          }
+        },
+        "y": {
+          "field": "brand",
+          "type": "nominal",
+          "title": null,
+          "sort": {"field": "brand_score", "op": "max", "order": "descending"},
+          "axis": {"domain": false, "ticks": false, "labelFontSize": 12}
+        }
+      },
+      "layer": [
+        {
+          "mark": {
+            "type": "rect",
+            "cornerRadius": 3,
+            "stroke": "#fcfcfb",
+            "strokeWidth": 2,
+            "cursor": "pointer"
+          },
+          "encoding": {
+            "color": {
+              "field": "rel_median",
+              "type": "quantitative",
+              "title": "Stars vs typical model",
+              "scale": {"domain": [-4, 2], "domainMid": 0, "scheme": "redblue", "clamp": true},
+              "legend": {
+                "orient": "right",
+                "format": "+.1f",
+                "gradientLength": 160,
+                "values": [-4, -2, 0, 1, 2]
+              }
+            },
+            "opacity": {"condition": {"param": "brandPick", "value": 1}, "value": 0.3},
+            "tooltip": [
+              {"field": "brand", "title": "Brand"},
+              {"field": "type", "title": "Appliance"},
+              {"field": "n", "title": "Models for sale"},
+              {"field": "rel_median", "title": "Stars vs typical model", "format": "+.1f"},
+              {"field": "kwh_median", "title": "Typical energy use (kWh/year)", "format": ",.0f"}
+            ]
+          },
+          "params": [
+            {
+              "name": "brandPick",
+              "select": {"type": "point", "fields": ["brand"], "on": "click", "clear": "dblclick"}
+            }
+          ]
+        },
+        {
+          "mark": {"type": "text", "fontSize": 10, "color": "#2b2a27"},
+          "encoding": {
+            "text": {"field": "n", "type": "quantitative"},
+            "color": {
+              "condition": {"test": "abs(datum.rel_median) >= 2", "value": "#ffffff"},
+              "value": "#2b2a27"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "width": 860,
+      "transform": [{"calculate": "random()", "as": "jitter"}],
+      "facet": {
+        "row": {
+          "field": "type",
+          "type": "nominal",
+          "title": null,
+          "sort": [
+            "Fridges & freezers",
+            "Washing machines",
+            "Clothes dryers",
+            "Dishwashers",
+            "Televisions"
+          ],
+          "header": {
+            "labelAngle": 0,
+            "labelAlign": "left",
+            "labelAnchor": "start",
+            "labelFontSize": 13,
+            "labelFontWeight": 600,
+            "labelOrient": "top",
+            "labelPadding": 2
+          }
+        }
+      },
+      "spacing": 14,
+      "resolve": {"scale": {"x": "independent"}, "axis": {"x": "independent"}},
+      "spec": {
+        "width": 860,
+        "height": 60,
+        "mark": {"type": "circle", "size": 14},
+        "encoding": {
+          "x": {
+            "field": "kwh",
+            "type": "quantitative",
+            "title": null,
+            "scale": {"zero": false, "nice": true},
+            "axis": {"grid": false, "tickCount": 8}
+          },
+          "y": {"field": "jitter", "type": "quantitative", "axis": null},
+          "color": {
+            "field": "stars",
+            "type": "quantitative",
+            "title": "Energy stars",
+            "scale": {
+              "domain": [1, 4, 10],
+              "range": ["#eb6834", "#c7c4bd", "#1c5cab"],
+              "interpolate": "lab"
+            },
+            "legend": {"orient": "top", "direction": "horizontal", "gradientLength": 200}
+          },
+          "opacity": {
+            "condition": {"param": "brandPick", "empty": true, "value": 0.6},
+            "value": 0.04
+          },
+          "size": {"condition": {"param": "brandPick", "empty": false, "value": 30}, "value": 14},
+          "tooltip": [
+            {"field": "brand", "title": "Brand"},
+            {"field": "type", "title": "Appliance"},
+            {"field": "stars", "title": "Stars"},
+            {"field": "kwh", "title": "kWh per year", "format": ",.0f"},
+            {"field": "size", "title": "Size (L / kg / place settings / cm)"},
+            {"field": "country", "title": "Made in"}
+          ]
+        }
+      }
+    }
+  ],
+  "resolve": {"scale": {"color": "independent", "opacity": "independent", "size": "independent"}}
+}

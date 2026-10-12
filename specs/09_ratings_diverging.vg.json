@@ -1,0 +1,95 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Diverging stacked bar: share of 1- to 5-star customer reviews for each appliance type, centred on 3 stars (Amazon Reviews 2023, McAuley Lab).",
+  "width": "container",
+  "height": {"step": 30},
+  "data": {
+    "url": "data/ratings_distribution.csv",
+    "format": {"type": "csv", "parse": {"stars": "number", "reviews": "number"}}
+  },
+  "transform": [
+    {"joinaggregate": [{"op": "sum", "field": "reviews", "as": "total"}], "groupby": ["category"]},
+    {"calculate": "datum.reviews / datum.total", "as": "pct"},
+    {
+      "window": [{"op": "sum", "field": "pct", "as": "end"}],
+      "sort": [{"field": "stars"}],
+      "groupby": ["category"],
+      "frame": [null, 0]
+    },
+    {"calculate": "datum.end - datum.pct", "as": "start"},
+    {
+      "calculate": "datum.stars <= 2 ? datum.pct : datum.stars == 3 ? datum.pct / 2 : 0",
+      "as": "left"
+    },
+    {"joinaggregate": [{"op": "sum", "field": "left", "as": "shift"}], "groupby": ["category"]},
+    {"calculate": "datum.start - datum.shift", "as": "x0"},
+    {"calculate": "datum.end - datum.shift", "as": "x1"},
+    {"calculate": "datum.stars == 1 ? datum.pct : 0", "as": "p1"},
+    {"joinaggregate": [{"op": "sum", "field": "p1", "as": "one_star"}], "groupby": ["category"]},
+    {"calculate": "substring('★★★★★', 0, datum.stars)", "as": "star_label"}
+  ],
+  "encoding": {
+    "y": {
+      "field": "category",
+      "type": "nominal",
+      "title": null,
+      "sort": {"field": "one_star", "op": "max", "order": "ascending"},
+      "axis": {"domain": false, "ticks": false, "labelFontSize": 12, "labelPadding": 8}
+    }
+  },
+  "layer": [
+    {
+      "mark": {"type": "bar", "height": {"band": 0.72}, "stroke": "#fcfcfb", "strokeWidth": 1.5},
+      "encoding": {
+        "x": {
+          "field": "x0",
+          "type": "quantitative",
+          "title": "◀ unhappy reviews (1–2★)          happy reviews (4–5★) ▶",
+          "scale": {"domain": [-0.75, 0.85]},
+          "axis": {
+            "format": ".0%",
+            "labelExpr": "format(abs(datum.value), '.0%')",
+            "values": [-0.6, -0.4, -0.2, 0, 0.2, 0.4, 0.6, 0.8]
+          }
+        },
+        "x2": {"field": "x1"},
+        "color": {
+          "field": "star_label",
+          "type": "ordinal",
+          "title": "Customer rating",
+          "sort": ["★", "★★", "★★★", "★★★★", "★★★★★"],
+          "scale": {
+            "domain": ["★", "★★", "★★★", "★★★★", "★★★★★"],
+            "range": ["#c0392b", "#f0a39a", "#dcdad4", "#86b6ef", "#1c5cab"]
+          },
+          "legend": {"orient": "top", "direction": "horizontal", "symbolType": "square"}
+        },
+        "tooltip": [
+          {"field": "category", "title": "Appliance"},
+          {"field": "star_label", "title": "Rating"},
+          {"field": "reviews", "title": "Reviews", "format": ","},
+          {"field": "pct", "title": "Share", "format": ".0%"}
+        ]
+      }
+    },
+    {
+      "transform": [{"filter": "datum.stars == 1"}],
+      "mark": {
+        "type": "text",
+        "align": "right",
+        "dx": -6,
+        "fontSize": 11,
+        "fontWeight": 600,
+        "color": "#c0392b"
+      },
+      "encoding": {
+        "x": {"field": "x0", "type": "quantitative"},
+        "text": {"field": "pct", "type": "quantitative", "format": ".0%"}
+      }
+    },
+    {
+      "mark": {"type": "rule", "color": "#52514e", "strokeWidth": 1},
+      "encoding": {"x": {"datum": 0}}
+    }
+  ]
+}

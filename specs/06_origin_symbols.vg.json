@@ -1,0 +1,123 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Map 3 (proportional symbol map): where the appliance models registered for sale in Australia are made, sized by number of models and coloured by their average energy star rating (Energy Rating registration data).",
+  "width": "container",
+  "height": 420,
+  "params": [
+    {
+      "name": "kind",
+      "value": "Fridges & freezers",
+      "bind": {
+        "input": "radio",
+        "name": " ",
+        "options": [
+          "Fridges & freezers",
+          "Washing machines",
+          "Dishwashers",
+          "Clothes dryers",
+          "Televisions"
+        ]
+      }
+    }
+  ],
+  "projection": {"type": "equalEarth", "rotate": [-60, 0], "center": [0, 20], "scale": 175},
+  "layer": [
+    {
+      "data": {
+        "url": "data/world-110m.json",
+        "format": {"type": "topojson", "feature": "countries"}
+      },
+      "mark": {"type": "geoshape", "fill": "#e7e5e0", "stroke": "#fcfcfb", "strokeWidth": 0.5}
+    },
+    {
+      "data": {
+        "url": "data/model_origins.csv",
+        "format": {
+          "type": "csv",
+          "parse": {
+            "iso": "number",
+            "lon": "number",
+            "lat": "number",
+            "models": "number",
+            "avg_stars": "number"
+          }
+        }
+      },
+      "transform": [
+        {"filter": "datum.type == kind"},
+        {"joinaggregate": [{"op": "sum", "field": "models", "as": "total"}]},
+        {"calculate": "datum.models / datum.total", "as": "share"}
+      ],
+      "mark": {"type": "circle", "opacity": 0.85, "stroke": "#ffffff", "strokeWidth": 1.5},
+      "encoding": {
+        "longitude": {"field": "lon", "type": "quantitative"},
+        "latitude": {"field": "lat", "type": "quantitative"},
+        "size": {
+          "field": "models",
+          "type": "quantitative",
+          "title": "Models for sale",
+          "scale": {"type": "sqrt", "range": [25, 2600], "domain": [0, 2500]},
+          "legend": {
+            "values": [25, 250, 1000, 2500],
+            "orient": "bottom-left",
+            "symbolFillColor": "#b7d3f6",
+            "symbolStrokeColor": "#256abf"
+          }
+        },
+        "color": {
+          "field": "avg_stars",
+          "type": "quantitative",
+          "title": "Average star rating",
+          "scale": {"range": ["#f3c9a8", "#eb6834", "#7a2e10"]},
+          "legend": {
+            "orient": "bottom-right",
+            "direction": "horizontal",
+            "gradientLength": 160,
+            "format": ".1f"
+          }
+        },
+        "order": {"field": "models", "sort": "descending"},
+        "tooltip": [
+          {"field": "country", "title": "Made in"},
+          {"field": "type", "title": "Appliance"},
+          {"field": "models", "title": "Models for sale", "format": ","},
+          {"field": "share", "title": "Share of all models", "format": ".0%"},
+          {"field": "avg_stars", "title": "Average stars", "format": ".1f"}
+        ]
+      }
+    },
+    {
+      "data": {
+        "url": "data/model_origins.csv",
+        "format": {
+          "type": "csv",
+          "parse": {
+            "iso": "number",
+            "lon": "number",
+            "lat": "number",
+            "models": "number",
+            "avg_stars": "number"
+          }
+        }
+      },
+      "transform": [
+        {"filter": "datum.type == kind"},
+        {
+          "window": [{"op": "rank", "as": "rank"}],
+          "sort": [{"field": "models", "order": "descending"}]
+        },
+        {"filter": "datum.rank <= 4"},
+        {
+          "calculate": "datum.country == 'United States of America' ? 'USA' : datum.country",
+          "as": "name"
+        }
+      ],
+      "mark": {"type": "text", "fontSize": 11, "fontWeight": 700, "dy": 0, "color": "#1f1f1d"},
+      "encoding": {
+        "longitude": {"field": "lon", "type": "quantitative"},
+        "latitude": {"field": "lat", "type": "quantitative"},
+        "text": {"field": "name"}
+      }
+    }
+  ]
+}

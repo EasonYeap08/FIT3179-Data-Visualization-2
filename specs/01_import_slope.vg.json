@@ -1,0 +1,110 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Slopegraph: units of each appliance imported into Australia, 2015 vs 2025 (UN Comtrade).",
+  "width": "container",
+  "height": 460,
+  "data": {
+    "url": "data/imports_trend.csv",
+    "format": {
+      "type": "csv",
+      "parse": {"year": "number", "units": "number", "value_usd_m": "number"}
+    }
+  },
+  "transform": [
+    {
+      "filter": "datum.hs != '841510'",
+      "description": "Air conditioners left out: HS 841510 was widened in HS 2017 to include ceiling and floor units, so 2015 and 2025 are not comparable."
+    },
+    {"filter": "datum.year == 2015 || datum.year == 2025"},
+    {"calculate": "datum.units / 1e6", "as": "units_m"},
+    {
+      "window": [{"op": "first_value", "field": "units_m", "as": "start"}],
+      "sort": [{"field": "year"}],
+      "groupby": ["category"],
+      "frame": [null, null]
+    },
+    {"calculate": "(datum.units_m - datum.start) / datum.start", "as": "change"},
+    {
+      "calculate": "datum.category == 'Vacuum cleaners' ? 4.75 : datum.category == 'Blenders & food mixers' ? 4.2 : datum.category == 'Ovens, cookers & air fryers' ? 3.6 : datum.category == 'Televisions' ? 2.78 : datum.category == 'Microwave ovens' ? 1.58 : datum.category == 'Washing machines' ? 1.32 : datum.category == 'Fridge-freezers' ? 1.17 : datum.category == 'Coffee & tea makers' ? 1.05 : datum.category == 'Dishwashers' ? 0.8 : datum.category == 'Clothes dryers' ? 0.617 : datum.category == 'Fridges' ? 0.44 : datum.units_m",
+      "as": "label_y",
+      "description": "Label positions only (millions), nudged so labels do not overlap; the lines and dots use the real values."
+    }
+  ],
+  "encoding": {
+    "x": {
+      "field": "year",
+      "type": "quantitative",
+      "title": null,
+      "scale": {"domain": [2014.3, 2030]},
+      "axis": {
+        "values": [2015, 2025],
+        "format": "d",
+        "labelFontSize": 13,
+        "labelFontWeight": 600,
+        "domain": false,
+        "ticks": false,
+        "grid": false
+      }
+    },
+    "color": {
+      "field": "group",
+      "type": "nominal",
+      "scale": {
+        "domain": ["Small appliances", "Large appliances & electronics"],
+        "range": ["#eb6834", "#8c8a84"]
+      },
+      "legend": {"orient": "top", "title": null, "direction": "horizontal", "labelLimit": 300}
+    },
+    "opacity": {"condition": {"param": "hover", "empty": true, "value": 1}, "value": 0.15}
+  },
+  "layer": [
+    {
+      "mark": {"type": "line", "strokeWidth": 2.5},
+      "encoding": {
+        "y": {
+          "field": "units_m",
+          "type": "quantitative",
+          "scale": {"type": "log", "domain": [0.25, 6], "nice": false},
+          "title": "Units imported (millions, log scale)",
+          "axis": {"values": [0.25, 0.5, 1, 2, 4], "format": "~g", "grid": true}
+        },
+        "detail": {"field": "category"}
+      }
+    },
+    {
+      "mark": {"type": "circle", "size": 70, "stroke": "#fcfcfb", "strokeWidth": 2},
+      "encoding": {
+        "y": {"field": "units_m", "type": "quantitative"},
+        "tooltip": [
+          {"field": "category", "title": "Appliance"},
+          {"field": "year", "title": "Year"},
+          {"field": "units", "title": "Units imported", "format": ",.0f"},
+          {"field": "change", "title": "Change 2015→2025", "format": "+.0%"}
+        ]
+      },
+      "params": [
+        {
+          "name": "hover",
+          "select": {
+            "type": "point",
+            "fields": ["category"],
+            "on": "pointerover",
+            "clear": "pointerout"
+          }
+        }
+      ]
+    },
+    {
+      "mark": {"type": "text", "align": "left", "dx": 10, "fontSize": 12},
+      "encoding": {
+        "y": {"field": "label_y", "type": "quantitative"},
+        "text": {"field": "label", "type": "nominal"},
+        "color": {"value": "#2b2a27"}
+      },
+      "transform": [
+        {"filter": "datum.year == 2025"},
+        {"calculate": "datum.category + '  ' + format(datum.change, '+.0%')", "as": "label"}
+      ]
+    }
+  ]
+}

@@ -1,0 +1,78 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Heatmap: change in units imported compared with 2015, by appliance and year (UN Comtrade).",
+  "width": "container",
+  "height": {"step": 30},
+  "data": {
+    "url": "data/imports_trend.csv",
+    "format": {
+      "type": "csv",
+      "parse": {"year": "number", "units": "number", "value_usd_m": "number"}
+    }
+  },
+  "transform": [
+    {
+      "filter": "datum.hs != '841510'",
+      "description": "Air conditioners left out: HS 841510 was widened in HS 2017 to include ceiling and floor units, so 2015 and 2025 are not comparable."
+    },
+    {"calculate": "datum.year == 2015 ? datum.units : null", "as": "base"},
+    {"joinaggregate": [{"op": "max", "field": "base", "as": "base2015"}], "groupby": ["category"]},
+    {"calculate": "isValid(datum.units) ? datum.units / datum.base2015 - 1 : null", "as": "change"},
+    {"joinaggregate": [{"op": "max", "field": "change", "as": "peak"}], "groupby": ["category"]},
+    {"calculate": "datum.year == 2025 ? datum.change : null", "as": "c25"},
+    {"joinaggregate": [{"op": "max", "field": "c25", "as": "change2025"}], "groupby": ["category"]}
+  ],
+  "encoding": {
+    "x": {
+      "field": "year",
+      "type": "ordinal",
+      "title": null,
+      "axis": {"orient": "top", "labelAngle": 0, "domain": false, "ticks": false}
+    },
+    "y": {
+      "field": "category",
+      "type": "nominal",
+      "title": null,
+      "sort": {"field": "change2025", "op": "max", "order": "descending"},
+      "axis": {"domain": false, "ticks": false, "labelFontSize": 12, "labelLimit": 260}
+    }
+  },
+  "layer": [
+    {
+      "mark": {"type": "rect", "cornerRadius": 3, "stroke": "#fcfcfb", "strokeWidth": 2},
+      "encoding": {
+        "color": {
+          "condition": {"test": "!isValid(datum.change)", "value": "#e7e5e0"},
+          "field": "change",
+          "type": "quantitative",
+          "title": "Change vs 2015",
+          "scale": {"domain": [-0.5, 1.5], "domainMid": 0, "scheme": "redblue", "clamp": true},
+          "legend": {
+            "format": "+.0%",
+            "orient": "bottom",
+            "direction": "horizontal",
+            "gradientLength": 260,
+            "values": [-0.5, 0, 0.5, 1, 1.5]
+          }
+        },
+        "tooltip": [
+          {"field": "category", "title": "Appliance"},
+          {"field": "year", "title": "Year"},
+          {"field": "units", "title": "Units imported", "format": ",.0f"},
+          {"field": "change", "title": "Change vs 2015", "format": "+.0%"}
+        ]
+      }
+    },
+    {
+      "transform": [{"filter": "datum.year == 2025 || datum.change == datum.peak"}],
+      "mark": {"type": "text", "fontSize": 10, "fontWeight": 600},
+      "encoding": {
+        "text": {"field": "change", "type": "quantitative", "format": "+.0%"},
+        "color": {
+          "condition": {"test": "abs(datum.change) > 0.6", "value": "#ffffff"},
+          "value": "#2b2a27"
+        }
+      }
+    }
+  ]
+}

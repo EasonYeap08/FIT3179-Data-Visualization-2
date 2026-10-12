@@ -1,0 +1,108 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Box plot: yearly electricity cost of every model for sale, grouped by star rating, at a price the reader chooses (Energy Rating registration data).",
+  "width": "container",
+  "height": 340,
+  "params": [
+    {
+      "name": "kind",
+      "value": "Clothes dryers",
+      "bind": {
+        "input": "radio",
+        "name": " ",
+        "options": [
+          "Fridges & freezers",
+          "Washing machines",
+          "Clothes dryers",
+          "Dishwashers",
+          "Televisions"
+        ]
+      }
+    },
+    {
+      "name": "price",
+      "value": 35,
+      "bind": {
+        "input": "range",
+        "min": 20,
+        "max": 60,
+        "step": 1,
+        "name": "Your electricity price (cents per kWh): "
+      }
+    }
+  ],
+  "data": {
+    "url": "data/models.csv",
+    "format": {"type": "csv", "parse": {"stars": "number", "kwh": "number", "size": "number"}}
+  },
+  "transform": [
+    {"filter": "datum.type == kind"},
+    {"calculate": "floor(datum.stars)", "as": "star_band"},
+    {"calculate": "datum.kwh * price / 100", "as": "cost"},
+    {"calculate": "datum.cost * 10", "as": "cost10"}
+  ],
+  "encoding": {
+    "x": {
+      "field": "star_band",
+      "type": "ordinal",
+      "title": "Energy star rating (whole stars)",
+      "axis": {
+        "labelAngle": 0,
+        "labelExpr": "+datum.value == 0 ? 'under 1' : datum.value + ' ★'",
+        "labelFontSize": 13
+      }
+    }
+  },
+  "layer": [
+    {
+      "mark": {
+        "type": "boxplot",
+        "extent": "min-max",
+        "size": 26,
+        "median": {"color": "#ffffff", "strokeWidth": 2},
+        "box": {"color": "#2a78d6", "cornerRadius": 3},
+        "rule": {"color": "#8c8a84"},
+        "ticks": {"color": "#8c8a84", "size": 10}
+      },
+      "encoding": {
+        "y": {
+          "field": "cost",
+          "type": "quantitative",
+          "title": "Electricity cost per year ($)",
+          "axis": {"format": "$,.0f"},
+          "scale": {"zero": true}
+        }
+      }
+    },
+    {
+      "transform": [
+        {
+          "aggregate": [
+            {"op": "median", "field": "cost", "as": "med"},
+            {"op": "count", "as": "n"},
+            {"op": "median", "field": "cost10", "as": "med10"}
+          ],
+          "groupby": ["star_band"]
+        }
+      ],
+      "mark": {
+        "type": "text",
+        "dx": 22,
+        "align": "left",
+        "fontSize": 11,
+        "fontWeight": 600,
+        "color": "#1c5cab"
+      },
+      "encoding": {
+        "y": {"field": "med", "type": "quantitative"},
+        "text": {"field": "med", "type": "quantitative", "format": "$,.0f"},
+        "tooltip": [
+          {"field": "star_band", "title": "Stars"},
+          {"field": "n", "title": "Models"},
+          {"field": "med", "title": "Typical yearly cost", "format": "$,.0f"},
+          {"field": "med10", "title": "Typical 10-year cost", "format": "$,.0f"}
+        ]
+      }
+    }
+  ]
+}

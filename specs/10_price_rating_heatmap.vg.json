@@ -1,0 +1,72 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Heatmap: average customer rating by price band and appliance type (Amazon Reviews 2023, McAuley Lab). Cells with fewer than 30 reviews are left out.",
+  "width": "container",
+  "height": {"step": 32},
+  "data": {
+    "url": "data/rating_by_price.csv",
+    "format": {
+      "type": "csv",
+      "parse": {"band_order": "number", "avg_rating": "number", "reviews": "number"}
+    }
+  },
+  "encoding": {
+    "x": {
+      "field": "price_band",
+      "type": "ordinal",
+      "title": "Price paid (US$)",
+      "sort": ["Under $100", "$100–249", "$250–499", "$500–999", "$1,000+"],
+      "axis": {
+        "orient": "top",
+        "labelAngle": 0,
+        "domain": false,
+        "ticks": false,
+        "labelFontWeight": 600
+      }
+    },
+    "y": {
+      "field": "category",
+      "type": "nominal",
+      "title": null,
+      "axis": {"domain": false, "ticks": false, "labelFontSize": 12}
+    }
+  },
+  "layer": [
+    {
+      "mark": {"type": "rect", "cornerRadius": 3, "stroke": "#fcfcfb", "strokeWidth": 2},
+      "encoding": {
+        "color": {
+          "field": "avg_rating",
+          "type": "quantitative",
+          "title": "Average rating (out of 5)",
+          "scale": {"domain": [2.9, 4.35], "domainMid": 3.85, "scheme": "redblue"},
+          "legend": {
+            "orient": "bottom",
+            "direction": "horizontal",
+            "gradientLength": 260,
+            "format": ".1f"
+          }
+        },
+        "tooltip": [
+          {"field": "category", "title": "Appliance"},
+          {"field": "price_band", "title": "Price"},
+          {"field": "avg_rating", "title": "Average rating", "format": ".2f"},
+          {"field": "reviews", "title": "Reviews", "format": ","}
+        ]
+      }
+    },
+    {
+      "mark": {"type": "text", "fontSize": 11, "fontWeight": 600},
+      "encoding": {
+        "text": {"field": "avg_rating", "type": "quantitative", "format": ".1f"},
+        "color": {
+          "condition": {
+            "test": "datum.avg_rating < 3.2 || datum.avg_rating > 4.2",
+            "value": "#ffffff"
+          },
+          "value": "#2b2a27"
+        }
+      }
+    }
+  ]
+}

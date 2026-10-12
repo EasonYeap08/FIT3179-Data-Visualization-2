@@ -1,0 +1,56 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Streamgraph: number of customer reviews written each quarter by appliance group, a stand-in for how many were bought (Amazon Reviews 2023, McAuley Lab).",
+  "width": "container",
+  "height": 320,
+  "data": {
+    "url": "data/reviews_monthly.csv",
+    "format": {"type": "csv", "parse": {"reviews": "number"}}
+  },
+  "transform": [
+    {"filter": "datum.month <= '2023-06'"},
+    {"calculate": "toDate(datum.month + '-01T00:00:00')", "as": "date"},
+    {
+      "calculate": "indexof(['Fridges','Freezers','Drinks fridges'], datum.category) >= 0 ? 'Fridges & freezers' : indexof(['Cooktops','Ovens & stoves','Rangehoods'], datum.category) >= 0 ? 'Cooking' : indexof(['Dishwashers','Benchtop dishwashers'], datum.category) >= 0 ? 'Dishwashers' : datum.category",
+      "as": "group"
+    }
+  ],
+  "params": [
+    {"name": "legendPick", "select": {"type": "point", "fields": ["group"]}, "bind": "legend"}
+  ],
+  "mark": {"type": "area", "interpolate": "basis", "stroke": "#fcfcfb", "strokeWidth": 1},
+  "encoding": {
+    "x": {
+      "field": "date",
+      "timeUnit": "yearquarter",
+      "type": "temporal",
+      "title": null,
+      "axis": {"format": "%Y", "tickCount": 8, "domain": false, "grid": true}
+    },
+    "y": {
+      "aggregate": "sum",
+      "field": "reviews",
+      "type": "quantitative",
+      "stack": "center",
+      "axis": null
+    },
+    "color": {
+      "field": "group",
+      "type": "nominal",
+      "title": "Click to highlight",
+      "sort": ["Ice makers", "Washers & dryers", "Cooking", "Fridges & freezers", "Dishwashers"],
+      "scale": {
+        "domain": ["Ice makers", "Washers & dryers", "Cooking", "Fridges & freezers", "Dishwashers"],
+        "range": ["#2a78d6", "#eb6834", "#1baf7a", "#eda100", "#e87ba4"]
+      },
+      "legend": {"orient": "top", "direction": "horizontal", "symbolType": "circle"}
+    },
+    "order": {"field": "group", "sort": "ascending"},
+    "opacity": {"condition": {"param": "legendPick", "value": 0.95}, "value": 0.15},
+    "tooltip": [
+      {"field": "group", "title": "Appliance"},
+      {"field": "date", "timeUnit": "yearquarter", "title": "Quarter"},
+      {"aggregate": "sum", "field": "reviews", "title": "Reviews written", "format": ","}
+    ]
+  }
+}
