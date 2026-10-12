@@ -1,0 +1,68 @@
+country,iso,lon,lat,type,models,avg_stars
+China,156,103.42,36.75,Clothes dryers,600,5.46
+South Korea,410,127.82,36.42,Clothes dryers,63,8.7
+Germany,276,10.27,51.08,Clothes dryers,54,8.51
+Czechia,203,15.34,49.78,Clothes dryers,52,8.76
+Poland,616,19.34,52.13,Clothes dryers,51,8.0
+Thailand,764,101.0,14.98,Clothes dryers,47,3.47
+Türkiye,792,35.37,39.06,Clothes dryers,42,6.04
+Slovenia,705,14.93,46.13,Clothes dryers,22,8.0
+United States of America,840,-98.73,39.87,Clothes dryers,18,1.44
+Italy,380,12.37,43.43,Clothes dryers,8,3.0
+Vietnam,704,106.33,16.56,Clothes dryers,1,4.0
+China,156,103.42,36.75,Dishwashers,676,3.32
+Germany,276,10.27,51.08,Dishwashers,132,4.19
+Türkiye,792,35.37,39.06,Dishwashers,121,3.55
+Italy,380,12.37,43.43,Dishwashers,118,3.86
+Thailand,764,101.0,14.98,Dishwashers,82,3.56
+Czechia,203,15.34,49.78,Dishwashers,73,4.35
+Slovenia,705,14.93,46.13,Dishwashers,69,4.12
+Poland,616,19.34,52.13,Dishwashers,30,3.25
+South Korea,410,127.82,36.42,Dishwashers,25,4.0
+Switzerland,756,8.12,46.79,Dishwashers,25,4.62
+Australia,36,134.23,-25.62,Dishwashers,1,4.0
+China,156,103.42,36.75,Fridges & freezers,2184,3.72
+Italy,380,12.37,43.43,Fridges & freezers,595,3.49
+Thailand,764,101.0,14.98,Fridges & freezers,448,3.89
+United States of America,840,-98.73,39.87,Fridges & freezers,83,4.28
+Türkiye,792,35.37,39.06,Fridges & freezers,81,3.72
+Germany,276,10.27,51.08,Fridges & freezers,62,5.02
+Indonesia,360,114.02,-0.25,Fridges & freezers,47,3.88
+Vietnam,704,106.33,16.56,Fridges & freezers,43,3.88
+Austria,40,14.06,47.62,Fridges & freezers,36,4.19
+South Korea,410,127.82,36.42,Fridges & freezers,27,3.54
+Japan,392,136.71,36.01,Fridges & freezers,18,4.11
+India,356,79.54,22.82,Fridges & freezers,16,4.53
+Bulgaria,100,25.19,42.76,Fridges & freezers,15,5.07
+Australia,36,134.23,-25.62,Fridges & freezers,2,3.0
+Poland,616,19.34,52.13,Fridges & freezers,2,4.0
+Switzerland,756,8.12,46.79,Fridges & freezers,1,6.0
+Romania,642,24.95,45.85,Fridges & freezers,1,3.5
+China,156,103.42,36.75,Televisions,2829,4.97
+Vietnam,704,106.33,16.56,Televisions,1374,4.39
+Indonesia,360,114.02,-0.25,Televisions,637,5.05
+South Korea,410,127.82,36.42,Televisions,508,5.16
+Malaysia,458,114.67,3.55,Televisions,75,4.21
+Germany,276,10.27,51.08,Televisions,26,5.21
+Bangladesh,50,90.28,23.83,Televisions,24,6.27
+Hungary,348,19.34,47.2,Televisions,20,5.0
+Mexico,484,-102.22,23.91,Televisions,17,2.21
+Australia,36,134.23,-25.62,Televisions,17,4.09
+Poland,616,19.34,52.13,Televisions,9,5.72
+Thailand,764,101.0,14.98,Televisions,6,5.0
+Egypt,818,29.86,26.47,Televisions,2,6.0
+China,156,103.42,36.75,Washing machines,944,4.05
+Thailand,764,101.0,14.98,Washing machines,242,4.39
+South Korea,410,127.82,36.42,Washing machines,128,4.63
+Vietnam,704,106.33,16.56,Washing machines,122,4.64
+Türkiye,792,35.37,39.06,Washing machines,65,4.07
+Germany,276,10.27,51.08,Washing machines,64,4.66
+Czechia,203,15.34,49.78,Washing machines,40,4.56
+Italy,380,12.37,43.43,Washing machines,39,4.62
+United States of America,840,-98.73,39.87,Washing machines,29,2.6
+Spain,724,-3.62,40.32,Washing machines,21,5.19
+Slovenia,705,14.93,46.13,Washing machines,20,4.9
+Poland,616,19.34,52.13,Washing machines,19,4.47
+Slovakia,703,19.5,48.73,Washing machines,2,4.0
+Switzerland,756,8.12,46.79,Washing machines,2,4.75
+Australia,36,134.23,-25.62,Washing machines,1,2.0

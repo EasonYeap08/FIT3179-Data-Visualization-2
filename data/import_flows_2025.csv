@@ -1,0 +1,163 @@
+iso,country,lon,lat,category,value_usd_m
+124,Canada,-97.86,58.45,Split-system air conditioners,0.07
+156,China,103.42,36.75,Split-system air conditioners,193.55
+250,France,2.35,46.56,Split-system air conditioners,0.39
+276,Germany,10.27,51.08,Split-system air conditioners,0.32
+376,Israel,35.0,31.48,Split-system air conditioners,0.61
+380,Italy,12.37,43.43,Split-system air conditioners,1.37
+458,Malaysia,114.67,3.55,Split-system air conditioners,21.0
+528,Netherlands,5.5,52.29,Split-system air conditioners,1.61
+554,New Zealand,170.6,-43.96,Split-system air conditioners,0.1
+356,India,79.54,22.82,Split-system air conditioners,0.07
+764,Thailand,101.0,14.98,Split-system air conditioners,77.79
+826,United Kingdom,-2.57,53.77,Split-system air conditioners,0.19
+840,USA,-98.73,39.87,Split-system air conditioners,0.58
+40,Austria,14.06,47.62,Fridges,0.74
+100,Bulgaria,25.19,42.76,Fridges,0.98
+156,China,103.42,36.75,Fridges,58.08
+276,Germany,10.27,51.08,Fridges,5.53
+380,Italy,12.37,43.43,Fridges,2.06
+410,South Korea,127.82,36.42,Fridges,0.2
+616,Poland,19.34,52.13,Fridges,0.28
+356,India,79.54,22.82,Fridges,0.06
+704,Vietnam,106.33,16.56,Fridges,0.48
+764,Thailand,101.0,14.98,Fridges,2.96
+792,Türkiye,35.37,39.06,Fridges,1.48
+840,USA,-98.73,39.87,Fridges,3.65
+156,China,103.42,36.75,Dishwashers,61.84
+203,Czechia,15.34,49.78,Dishwashers,30.91
+250,France,2.35,46.56,Dishwashers,0.06
+276,Germany,10.27,51.08,Dishwashers,47.33
+380,Italy,12.37,43.43,Dishwashers,10.76
+410,South Korea,127.82,36.42,Dishwashers,15.92
+528,Netherlands,5.5,52.29,Dishwashers,0.29
+616,Poland,19.34,52.13,Dishwashers,3.34
+756,Switzerland,8.12,46.79,Dishwashers,1.76
+764,Thailand,101.0,14.98,Dishwashers,26.97
+156,China,103.42,36.75,Washing machines,150.99
+203,Czechia,15.34,49.78,Washing machines,1.97
+276,Germany,10.27,51.08,Washing machines,35.66
+360,Indonesia,114.02,-0.25,Washing machines,0.11
+380,Italy,12.37,43.43,Washing machines,5.81
+410,South Korea,127.82,36.42,Washing machines,0.44
+554,New Zealand,170.6,-43.96,Washing machines,0.11
+616,Poland,19.34,52.13,Washing machines,12.26
+724,Spain,-3.62,40.32,Washing machines,8.5
+729,Sudan,29.83,15.97,Washing machines,0.06
+756,Switzerland,8.12,46.79,Washing machines,0.47
+764,Thailand,101.0,14.98,Washing machines,60.0
+792,Türkiye,35.37,39.06,Washing machines,3.59
+840,USA,-98.73,39.87,Washing machines,1.78
+276,Germany,10.27,51.08,Clothes dryers,0.49
+380,Italy,12.37,43.43,Clothes dryers,0.2
+410,South Korea,127.82,36.42,Clothes dryers,14.33
+616,Poland,19.34,52.13,Clothes dryers,27.93
+704,Vietnam,106.33,16.56,Clothes dryers,0.09
+756,Switzerland,8.12,46.79,Clothes dryers,0.31
+764,Thailand,101.0,14.98,Clothes dryers,31.35
+840,USA,-98.73,39.87,Clothes dryers,2.26
+156,China,103.42,36.75,Vacuum cleaners,329.72
+276,Germany,10.27,51.08,Vacuum cleaners,15.73
+348,Hungary,19.34,47.2,Vacuum cleaners,1.19
+380,Italy,12.37,43.43,Vacuum cleaners,1.61
+392,Japan,136.71,36.01,Vacuum cleaners,0.13
+410,South Korea,127.82,36.42,Vacuum cleaners,0.79
+458,Malaysia,114.67,3.55,Vacuum cleaners,120.3
+554,New Zealand,170.6,-43.96,Vacuum cleaners,0.49
+608,Philippines,121.55,15.74,Vacuum cleaners,22.53
+616,Poland,19.34,52.13,Vacuum cleaners,0.07
+642,Romania,24.95,45.85,Vacuum cleaners,4.25
+704,Vietnam,106.33,16.56,Vacuum cleaners,30.13
+752,Sweden,16.11,62.42,Vacuum cleaners,0.09
+764,Thailand,101.0,14.98,Vacuum cleaners,0.43
+826,United Kingdom,-2.57,53.77,Vacuum cleaners,1.84
+840,USA,-98.73,39.87,Vacuum cleaners,1.62
+156,China,103.42,36.75,Blenders & food mixers,70.52
+250,France,2.35,46.56,Blenders & food mixers,2.26
+276,Germany,10.27,51.08,Blenders & food mixers,0.48
+380,Italy,12.37,43.43,Blenders & food mixers,2.32
+410,South Korea,127.82,36.42,Blenders & food mixers,2.1
+554,New Zealand,170.6,-43.96,Blenders & food mixers,0.05
+642,Romania,24.95,45.85,Blenders & food mixers,2.41
+356,India,79.54,22.82,Blenders & food mixers,0.81
+724,Spain,-3.62,40.32,Blenders & food mixers,1.19
+752,Sweden,16.11,62.42,Blenders & food mixers,0.5
+756,Switzerland,8.12,46.79,Blenders & food mixers,0.68
+840,USA,-98.73,39.87,Blenders & food mixers,16.59
+156,China,103.42,36.75,Microwave ovens,97.05
+250,France,2.35,46.56,Microwave ovens,0.13
+276,Germany,10.27,51.08,Microwave ovens,0.35
+380,Italy,12.37,43.43,Microwave ovens,0.54
+458,Malaysia,114.67,3.55,Microwave ovens,2.44
+616,Poland,19.34,52.13,Microwave ovens,0.12
+620,Portugal,-8.06,39.61,Microwave ovens,0.13
+705,Slovenia,14.93,46.13,Microwave ovens,0.47
+764,Thailand,101.0,14.98,Microwave ovens,0.06
+826,United Kingdom,-2.57,53.77,Microwave ovens,2.8
+840,USA,-98.73,39.87,Microwave ovens,0.26
+40,Austria,14.06,47.62,"Ovens, cookers & air fryers",1.42
+156,China,103.42,36.75,"Ovens, cookers & air fryers",70.81
+203,Czechia,15.34,49.78,"Ovens, cookers & air fryers",0.1
+250,France,2.35,46.56,"Ovens, cookers & air fryers",10.39
+276,Germany,10.27,51.08,"Ovens, cookers & air fryers",61.93
+380,Italy,12.37,43.43,"Ovens, cookers & air fryers",52.64
+392,Japan,136.71,36.01,"Ovens, cookers & air fryers",0.19
+410,South Korea,127.82,36.42,"Ovens, cookers & air fryers",1.82
+458,Malaysia,114.67,3.55,"Ovens, cookers & air fryers",0.28
+528,Netherlands,5.5,52.29,"Ovens, cookers & air fryers",0.18
+554,New Zealand,170.6,-43.96,"Ovens, cookers & air fryers",0.25
+608,Philippines,121.55,15.74,"Ovens, cookers & air fryers",0.09
+616,Poland,19.34,52.13,"Ovens, cookers & air fryers",8.14
+642,Romania,24.95,45.85,"Ovens, cookers & air fryers",0.82
+356,India,79.54,22.82,"Ovens, cookers & air fryers",0.05
+704,Vietnam,106.33,16.56,"Ovens, cookers & air fryers",2.0
+705,Slovenia,14.93,46.13,"Ovens, cookers & air fryers",1.8
+724,Spain,-3.62,40.32,"Ovens, cookers & air fryers",18.33
+756,Switzerland,8.12,46.79,"Ovens, cookers & air fryers",5.34
+764,Thailand,101.0,14.98,"Ovens, cookers & air fryers",46.4
+792,Türkiye,35.37,39.06,"Ovens, cookers & air fryers",17.12
+818,Egypt,29.86,26.47,"Ovens, cookers & air fryers",0.22
+826,United Kingdom,-2.57,53.77,"Ovens, cookers & air fryers",7.82
+840,USA,-98.73,39.87,"Ovens, cookers & air fryers",5.52
+156,China,103.42,36.75,Coffee & tea makers,107.54
+276,Germany,10.27,51.08,Coffee & tea makers,3.09
+348,Hungary,19.34,47.2,Coffee & tea makers,7.45
+380,Italy,12.37,43.43,Coffee & tea makers,21.56
+458,Malaysia,114.67,3.55,Coffee & tea makers,0.27
+528,Netherlands,5.5,52.29,Coffee & tea makers,0.5
+554,New Zealand,170.6,-43.96,Coffee & tea makers,0.09
+620,Portugal,-8.06,39.61,Coffee & tea makers,2.05
+642,Romania,24.95,45.85,Coffee & tea makers,15.6
+705,Slovenia,14.93,46.13,Coffee & tea makers,0.65
+724,Spain,-3.62,40.32,Coffee & tea makers,0.23
+756,Switzerland,8.12,46.79,Coffee & tea makers,6.38
+792,Türkiye,35.37,39.06,Coffee & tea makers,0.09
+804,Ukraine,31.45,49.0,Coffee & tea makers,7.57
+840,USA,-98.73,39.87,Coffee & tea makers,0.36
+156,China,103.42,36.75,Televisions,418.29
+276,Germany,10.27,51.08,Televisions,1.27
+360,Indonesia,114.02,-0.25,Televisions,166.54
+410,South Korea,127.82,36.42,Televisions,1.46
+458,Malaysia,114.67,3.55,Televisions,65.11
+484,Mexico,-102.22,23.91,Televisions,0.18
+703,Slovakia,19.5,48.73,Televisions,0.45
+704,Vietnam,106.33,16.56,Televisions,222.33
+826,United Kingdom,-2.57,53.77,Televisions,0.11
+840,USA,-98.73,39.87,Televisions,0.21
+40,Austria,14.06,47.62,Fridge-freezers,0.74
+100,Bulgaria,25.19,42.76,Fridge-freezers,0.69
+124,Canada,-97.86,58.45,Fridge-freezers,0.06
+156,China,103.42,36.75,Fridge-freezers,276.61
+276,Germany,10.27,51.08,Fridge-freezers,2.38
+360,Indonesia,114.02,-0.25,Fridge-freezers,11.87
+380,Italy,12.37,43.43,Fridge-freezers,2.3
+392,Japan,136.71,36.01,Fridge-freezers,10.1
+410,South Korea,127.82,36.42,Fridge-freezers,24.24
+528,Netherlands,5.5,52.29,Fridge-freezers,1.75
+608,Philippines,121.55,15.74,Fridge-freezers,0.33
+356,India,79.54,22.82,Fridge-freezers,0.84
+704,Vietnam,106.33,16.56,Fridge-freezers,9.37
+756,Switzerland,8.12,46.79,Fridge-freezers,0.07
+764,Thailand,101.0,14.98,Fridge-freezers,133.53
+792,Türkiye,35.37,39.06,Fridge-freezers,3.41
+840,USA,-98.73,39.87,Fridge-freezers,7.01

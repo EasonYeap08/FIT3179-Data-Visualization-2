@@ -1,0 +1,927 @@
+month,category,reviews
+2016-01,Benchtop dishwashers,62
+2016-02,Benchtop dishwashers,72
+2016-03,Benchtop dishwashers,68
+2016-04,Benchtop dishwashers,33
+2016-05,Benchtop dishwashers,61
+2016-06,Benchtop dishwashers,57
+2016-07,Benchtop dishwashers,61
+2016-08,Benchtop dishwashers,72
+2016-09,Benchtop dishwashers,69
+2016-10,Benchtop dishwashers,52
+2016-11,Benchtop dishwashers,52
+2016-12,Benchtop dishwashers,67
+2017-01,Benchtop dishwashers,68
+2017-02,Benchtop dishwashers,62
+2017-03,Benchtop dishwashers,51
+2017-04,Benchtop dishwashers,46
+2017-05,Benchtop dishwashers,58
+2017-06,Benchtop dishwashers,55
+2017-07,Benchtop dishwashers,52
+2017-08,Benchtop dishwashers,40
+2017-09,Benchtop dishwashers,40
+2017-10,Benchtop dishwashers,39
+2017-11,Benchtop dishwashers,34
+2017-12,Benchtop dishwashers,51
+2018-01,Benchtop dishwashers,52
+2018-02,Benchtop dishwashers,57
+2018-03,Benchtop dishwashers,58
+2018-04,Benchtop dishwashers,49
+2018-05,Benchtop dishwashers,53
+2018-06,Benchtop dishwashers,63
+2018-07,Benchtop dishwashers,54
+2018-08,Benchtop dishwashers,52
+2018-09,Benchtop dishwashers,33
+2018-10,Benchtop dishwashers,37
+2018-11,Benchtop dishwashers,45
+2018-12,Benchtop dishwashers,37
+2019-01,Benchtop dishwashers,68
+2019-02,Benchtop dishwashers,61
+2019-03,Benchtop dishwashers,56
+2019-04,Benchtop dishwashers,45
+2019-05,Benchtop dishwashers,41
+2019-06,Benchtop dishwashers,38
+2019-07,Benchtop dishwashers,52
+2019-08,Benchtop dishwashers,66
+2019-09,Benchtop dishwashers,42
+2019-10,Benchtop dishwashers,45
+2019-11,Benchtop dishwashers,43
+2019-12,Benchtop dishwashers,54
+2020-01,Benchtop dishwashers,74
+2020-02,Benchtop dishwashers,56
+2020-03,Benchtop dishwashers,60
+2020-04,Benchtop dishwashers,69
+2020-05,Benchtop dishwashers,95
+2020-06,Benchtop dishwashers,67
+2020-07,Benchtop dishwashers,102
+2020-08,Benchtop dishwashers,81
+2020-09,Benchtop dishwashers,70
+2020-10,Benchtop dishwashers,92
+2020-11,Benchtop dishwashers,90
+2020-12,Benchtop dishwashers,118
+2021-01,Benchtop dishwashers,143
+2021-02,Benchtop dishwashers,162
+2021-03,Benchtop dishwashers,212
+2021-04,Benchtop dishwashers,210
+2021-05,Benchtop dishwashers,177
+2021-06,Benchtop dishwashers,161
+2021-07,Benchtop dishwashers,191
+2021-08,Benchtop dishwashers,170
+2021-09,Benchtop dishwashers,163
+2021-10,Benchtop dishwashers,126
+2021-11,Benchtop dishwashers,126
+2021-12,Benchtop dishwashers,182
+2022-01,Benchtop dishwashers,184
+2022-02,Benchtop dishwashers,183
+2022-03,Benchtop dishwashers,169
+2022-04,Benchtop dishwashers,133
+2022-05,Benchtop dishwashers,141
+2022-06,Benchtop dishwashers,169
+2022-07,Benchtop dishwashers,203
+2022-08,Benchtop dishwashers,252
+2022-09,Benchtop dishwashers,236
+2022-10,Benchtop dishwashers,238
+2022-11,Benchtop dishwashers,210
+2022-12,Benchtop dishwashers,235
+2023-01,Benchtop dishwashers,241
+2023-02,Benchtop dishwashers,185
+2023-03,Benchtop dishwashers,270
+2023-04,Benchtop dishwashers,147
+2023-05,Benchtop dishwashers,94
+2023-06,Benchtop dishwashers,57
+2023-07,Benchtop dishwashers,46
+2023-08,Benchtop dishwashers,35
+2023-09,Benchtop dishwashers,1
+2016-01,Cooktops,82
+2016-02,Cooktops,61
+2016-03,Cooktops,75
+2016-04,Cooktops,46
+2016-05,Cooktops,62
+2016-06,Cooktops,65
+2016-07,Cooktops,67
+2016-08,Cooktops,60
+2016-09,Cooktops,63
+2016-10,Cooktops,57
+2016-11,Cooktops,62
+2016-12,Cooktops,63
+2017-01,Cooktops,97
+2017-02,Cooktops,67
+2017-03,Cooktops,59
+2017-04,Cooktops,50
+2017-05,Cooktops,68
+2017-06,Cooktops,53
+2017-07,Cooktops,51
+2017-08,Cooktops,67
+2017-09,Cooktops,62
+2017-10,Cooktops,61
+2017-11,Cooktops,66
+2017-12,Cooktops,69
+2018-01,Cooktops,97
+2018-02,Cooktops,69
+2018-03,Cooktops,88
+2018-04,Cooktops,84
+2018-05,Cooktops,71
+2018-06,Cooktops,83
+2018-07,Cooktops,67
+2018-08,Cooktops,92
+2018-09,Cooktops,57
+2018-10,Cooktops,70
+2018-11,Cooktops,87
+2018-12,Cooktops,81
+2019-01,Cooktops,126
+2019-02,Cooktops,91
+2019-03,Cooktops,103
+2019-04,Cooktops,110
+2019-05,Cooktops,142
+2019-06,Cooktops,114
+2019-07,Cooktops,146
+2019-08,Cooktops,121
+2019-09,Cooktops,128
+2019-10,Cooktops,119
+2019-11,Cooktops,134
+2019-12,Cooktops,179
+2020-01,Cooktops,208
+2020-02,Cooktops,150
+2020-03,Cooktops,124
+2020-04,Cooktops,70
+2020-05,Cooktops,103
+2020-06,Cooktops,109
+2020-07,Cooktops,151
+2020-08,Cooktops,172
+2020-09,Cooktops,140
+2020-10,Cooktops,147
+2020-11,Cooktops,147
+2020-12,Cooktops,210
+2021-01,Cooktops,213
+2021-02,Cooktops,190
+2021-03,Cooktops,242
+2021-04,Cooktops,211
+2021-05,Cooktops,190
+2021-06,Cooktops,207
+2021-07,Cooktops,214
+2021-08,Cooktops,171
+2021-09,Cooktops,182
+2021-10,Cooktops,195
+2021-11,Cooktops,198
+2021-12,Cooktops,178
+2022-01,Cooktops,193
+2022-02,Cooktops,160
+2022-03,Cooktops,194
+2022-04,Cooktops,193
+2022-05,Cooktops,179
+2022-06,Cooktops,183
+2022-07,Cooktops,204
+2022-08,Cooktops,229
+2022-09,Cooktops,241
+2022-10,Cooktops,262
+2022-11,Cooktops,249
+2022-12,Cooktops,268
+2023-01,Cooktops,316
+2023-02,Cooktops,271
+2023-03,Cooktops,351
+2023-04,Cooktops,199
+2023-05,Cooktops,86
+2023-06,Cooktops,72
+2023-07,Cooktops,41
+2023-08,Cooktops,43
+2023-09,Cooktops,3
+2016-01,Dishwashers,16
+2016-02,Dishwashers,22
+2016-03,Dishwashers,8
+2016-04,Dishwashers,20
+2016-05,Dishwashers,6
+2016-06,Dishwashers,19
+2016-07,Dishwashers,15
+2016-08,Dishwashers,21
+2016-09,Dishwashers,19
+2016-10,Dishwashers,11
+2016-11,Dishwashers,15
+2016-12,Dishwashers,18
+2017-01,Dishwashers,18
+2017-02,Dishwashers,14
+2017-03,Dishwashers,9
+2017-04,Dishwashers,12
+2017-05,Dishwashers,11
+2017-06,Dishwashers,5
+2017-07,Dishwashers,13
+2017-08,Dishwashers,15
+2017-09,Dishwashers,10
+2017-10,Dishwashers,11
+2017-11,Dishwashers,13
+2017-12,Dishwashers,15
+2018-01,Dishwashers,14
+2018-02,Dishwashers,24
+2018-03,Dishwashers,21
+2018-04,Dishwashers,22
+2018-05,Dishwashers,19
+2018-06,Dishwashers,23
+2018-07,Dishwashers,25
+2018-08,Dishwashers,22
+2018-09,Dishwashers,19
+2018-10,Dishwashers,17
+2018-11,Dishwashers,20
+2018-12,Dishwashers,23
+2019-01,Dishwashers,25
+2019-02,Dishwashers,31
+2019-03,Dishwashers,14
+2019-04,Dishwashers,21
+2019-05,Dishwashers,27
+2019-06,Dishwashers,23
+2019-07,Dishwashers,25
+2019-08,Dishwashers,21
+2019-09,Dishwashers,22
+2019-10,Dishwashers,23
+2019-11,Dishwashers,39
+2019-12,Dishwashers,26
+2020-01,Dishwashers,48
+2020-02,Dishwashers,33
+2020-03,Dishwashers,26
+2020-04,Dishwashers,31
+2020-05,Dishwashers,17
+2020-06,Dishwashers,26
+2020-07,Dishwashers,26
+2020-08,Dishwashers,16
+2020-09,Dishwashers,25
+2020-10,Dishwashers,28
+2020-11,Dishwashers,16
+2020-12,Dishwashers,35
+2021-01,Dishwashers,37
+2021-02,Dishwashers,41
+2021-03,Dishwashers,49
+2021-04,Dishwashers,35
+2021-05,Dishwashers,38
+2021-06,Dishwashers,37
+2021-07,Dishwashers,31
+2021-08,Dishwashers,29
+2021-09,Dishwashers,21
+2021-10,Dishwashers,18
+2021-11,Dishwashers,19
+2021-12,Dishwashers,28
+2022-01,Dishwashers,22
+2022-02,Dishwashers,27
+2022-03,Dishwashers,21
+2022-04,Dishwashers,26
+2022-05,Dishwashers,32
+2022-06,Dishwashers,22
+2022-07,Dishwashers,34
+2022-08,Dishwashers,34
+2022-09,Dishwashers,40
+2022-10,Dishwashers,24
+2022-11,Dishwashers,33
+2022-12,Dishwashers,37
+2023-01,Dishwashers,27
+2023-02,Dishwashers,20
+2023-03,Dishwashers,23
+2023-04,Dishwashers,19
+2023-05,Dishwashers,3
+2023-06,Dishwashers,2
+2023-07,Dishwashers,5
+2016-01,Drinks fridges,54
+2016-02,Drinks fridges,44
+2016-03,Drinks fridges,43
+2016-04,Drinks fridges,52
+2016-05,Drinks fridges,66
+2016-06,Drinks fridges,73
+2016-07,Drinks fridges,93
+2016-08,Drinks fridges,98
+2016-09,Drinks fridges,72
+2016-10,Drinks fridges,83
+2016-11,Drinks fridges,67
+2016-12,Drinks fridges,92
+2017-01,Drinks fridges,114
+2017-02,Drinks fridges,69
+2017-03,Drinks fridges,76
+2017-04,Drinks fridges,79
+2017-05,Drinks fridges,80
+2017-06,Drinks fridges,73
+2017-07,Drinks fridges,78
+2017-08,Drinks fridges,94
+2017-09,Drinks fridges,67
+2017-10,Drinks fridges,70
+2017-11,Drinks fridges,72
+2017-12,Drinks fridges,67
+2018-01,Drinks fridges,95
+2018-02,Drinks fridges,70
+2018-03,Drinks fridges,86
+2018-04,Drinks fridges,80
+2018-05,Drinks fridges,95
+2018-06,Drinks fridges,94
+2018-07,Drinks fridges,104
+2018-08,Drinks fridges,102
+2018-09,Drinks fridges,86
+2018-10,Drinks fridges,82
+2018-11,Drinks fridges,67
+2018-12,Drinks fridges,52
+2019-01,Drinks fridges,106
+2019-02,Drinks fridges,53
+2019-03,Drinks fridges,67
+2019-04,Drinks fridges,70
+2019-05,Drinks fridges,80
+2019-06,Drinks fridges,86
+2019-07,Drinks fridges,142
+2019-08,Drinks fridges,135
+2019-09,Drinks fridges,67
+2019-10,Drinks fridges,74
+2019-11,Drinks fridges,72
+2019-12,Drinks fridges,99
+2020-01,Drinks fridges,105
+2020-02,Drinks fridges,78
+2020-03,Drinks fridges,53
+2020-04,Drinks fridges,57
+2020-05,Drinks fridges,70
+2020-06,Drinks fridges,98
+2020-07,Drinks fridges,126
+2020-08,Drinks fridges,180
+2020-09,Drinks fridges,145
+2020-10,Drinks fridges,148
+2020-11,Drinks fridges,115
+2020-12,Drinks fridges,146
+2021-01,Drinks fridges,125
+2021-02,Drinks fridges,120
+2021-03,Drinks fridges,124
+2021-04,Drinks fridges,158
+2021-05,Drinks fridges,146
+2021-06,Drinks fridges,195
+2021-07,Drinks fridges,211
+2021-08,Drinks fridges,188
+2021-09,Drinks fridges,153
+2021-10,Drinks fridges,130
+2021-11,Drinks fridges,143
+2021-12,Drinks fridges,108
+2022-01,Drinks fridges,137
+2022-02,Drinks fridges,104
+2022-03,Drinks fridges,107
+2022-04,Drinks fridges,139
+2022-05,Drinks fridges,136
+2022-06,Drinks fridges,152
+2022-07,Drinks fridges,220
+2022-08,Drinks fridges,251
+2022-09,Drinks fridges,207
+2022-10,Drinks fridges,194
+2022-11,Drinks fridges,179
+2022-12,Drinks fridges,169
+2023-01,Drinks fridges,185
+2023-02,Drinks fridges,156
+2023-03,Drinks fridges,166
+2023-04,Drinks fridges,128
+2023-05,Drinks fridges,94
+2023-06,Drinks fridges,63
+2023-07,Drinks fridges,40
+2023-08,Drinks fridges,30
+2023-09,Drinks fridges,1
+2016-01,Freezers,47
+2016-02,Freezers,75
+2016-03,Freezers,91
+2016-04,Freezers,65
+2016-05,Freezers,63
+2016-06,Freezers,78
+2016-07,Freezers,76
+2016-08,Freezers,71
+2016-09,Freezers,74
+2016-10,Freezers,77
+2016-11,Freezers,68
+2016-12,Freezers,135
+2017-01,Freezers,107
+2017-02,Freezers,77
+2017-03,Freezers,86
+2017-04,Freezers,95
+2017-05,Freezers,64
+2017-06,Freezers,103
+2017-07,Freezers,116
+2017-08,Freezers,126
+2017-09,Freezers,124
+2017-10,Freezers,102
+2017-11,Freezers,105
+2017-12,Freezers,89
+2018-01,Freezers,87
+2018-02,Freezers,74
+2018-03,Freezers,92
+2018-04,Freezers,81
+2018-05,Freezers,79
+2018-06,Freezers,88
+2018-07,Freezers,106
+2018-08,Freezers,83
+2018-09,Freezers,63
+2018-10,Freezers,50
+2018-11,Freezers,75
+2018-12,Freezers,79
+2019-01,Freezers,56
+2019-02,Freezers,53
+2019-03,Freezers,64
+2019-04,Freezers,57
+2019-05,Freezers,71
+2019-06,Freezers,83
+2019-07,Freezers,114
+2019-08,Freezers,90
+2019-09,Freezers,62
+2019-10,Freezers,53
+2019-11,Freezers,74
+2019-12,Freezers,93
+2020-01,Freezers,112
+2020-02,Freezers,108
+2020-03,Freezers,163
+2020-04,Freezers,197
+2020-05,Freezers,284
+2020-06,Freezers,328
+2020-07,Freezers,352
+2020-08,Freezers,408
+2020-09,Freezers,330
+2020-10,Freezers,343
+2020-11,Freezers,367
+2020-12,Freezers,425
+2021-01,Freezers,287
+2021-02,Freezers,302
+2021-03,Freezers,356
+2021-04,Freezers,429
+2021-05,Freezers,372
+2021-06,Freezers,337
+2021-07,Freezers,348
+2021-08,Freezers,360
+2021-09,Freezers,271
+2021-10,Freezers,282
+2021-11,Freezers,222
+2021-12,Freezers,213
+2022-01,Freezers,200
+2022-02,Freezers,120
+2022-03,Freezers,165
+2022-04,Freezers,149
+2022-05,Freezers,170
+2022-06,Freezers,167
+2022-07,Freezers,201
+2022-08,Freezers,219
+2022-09,Freezers,179
+2022-10,Freezers,179
+2022-11,Freezers,172
+2022-12,Freezers,171
+2023-01,Freezers,172
+2023-02,Freezers,141
+2023-03,Freezers,194
+2023-04,Freezers,148
+2023-05,Freezers,74
+2023-06,Freezers,48
+2023-07,Freezers,40
+2023-08,Freezers,28
+2016-01,Fridges,86
+2016-02,Fridges,88
+2016-03,Fridges,107
+2016-04,Fridges,80
+2016-05,Fridges,91
+2016-06,Fridges,106
+2016-07,Fridges,127
+2016-08,Fridges,118
+2016-09,Fridges,99
+2016-10,Fridges,115
+2016-11,Fridges,101
+2016-12,Fridges,106
+2017-01,Fridges,84
+2017-02,Fridges,59
+2017-03,Fridges,85
+2017-04,Fridges,75
+2017-05,Fridges,82
+2017-06,Fridges,98
+2017-07,Fridges,97
+2017-08,Fridges,89
+2017-09,Fridges,98
+2017-10,Fridges,77
+2017-11,Fridges,98
+2017-12,Fridges,69
+2018-01,Fridges,82
+2018-02,Fridges,110
+2018-03,Fridges,118
+2018-04,Fridges,129
+2018-05,Fridges,161
+2018-06,Fridges,183
+2018-07,Fridges,194
+2018-08,Fridges,228
+2018-09,Fridges,169
+2018-10,Fridges,180
+2018-11,Fridges,141
+2018-12,Fridges,161
+2019-01,Fridges,128
+2019-02,Fridges,103
+2019-03,Fridges,112
+2019-04,Fridges,111
+2019-05,Fridges,157
+2019-06,Fridges,180
+2019-07,Fridges,198
+2019-08,Fridges,198
+2019-09,Fridges,158
+2019-10,Fridges,170
+2019-11,Fridges,168
+2019-12,Fridges,203
+2020-01,Fridges,223
+2020-02,Fridges,158
+2020-03,Fridges,132
+2020-04,Fridges,132
+2020-05,Fridges,153
+2020-06,Fridges,211
+2020-07,Fridges,253
+2020-08,Fridges,284
+2020-09,Fridges,258
+2020-10,Fridges,245
+2020-11,Fridges,228
+2020-12,Fridges,256
+2021-01,Fridges,283
+2021-02,Fridges,288
+2021-03,Fridges,397
+2021-04,Fridges,325
+2021-05,Fridges,341
+2021-06,Fridges,340
+2021-07,Fridges,419
+2021-08,Fridges,387
+2021-09,Fridges,347
+2021-10,Fridges,321
+2021-11,Fridges,264
+2021-12,Fridges,276
+2022-01,Fridges,283
+2022-02,Fridges,229
+2022-03,Fridges,292
+2022-04,Fridges,269
+2022-05,Fridges,334
+2022-06,Fridges,374
+2022-07,Fridges,413
+2022-08,Fridges,476
+2022-09,Fridges,423
+2022-10,Fridges,426
+2022-11,Fridges,368
+2022-12,Fridges,393
+2023-01,Fridges,355
+2023-02,Fridges,353
+2023-03,Fridges,455
+2023-04,Fridges,268
+2023-05,Fridges,187
+2023-06,Fridges,121
+2023-07,Fridges,109
+2023-08,Fridges,92
+2023-09,Fridges,6
+2016-01,Ice makers,245
+2016-02,Ice makers,237
+2016-03,Ice makers,300
+2016-04,Ice makers,231
+2016-05,Ice makers,300
+2016-06,Ice makers,386
+2016-07,Ice makers,461
+2016-08,Ice makers,502
+2016-09,Ice makers,393
+2016-10,Ice makers,315
+2016-11,Ice makers,257
+2016-12,Ice makers,346
+2017-01,Ice makers,347
+2017-02,Ice makers,267
+2017-03,Ice makers,346
+2017-04,Ice makers,359
+2017-05,Ice makers,397
+2017-06,Ice makers,398
+2017-07,Ice makers,465
+2017-08,Ice makers,524
+2017-09,Ice makers,428
+2017-10,Ice makers,375
+2017-11,Ice makers,367
+2017-12,Ice makers,382
+2018-01,Ice makers,494
+2018-02,Ice makers,370
+2018-03,Ice makers,398
+2018-04,Ice makers,380
+2018-05,Ice makers,403
+2018-06,Ice makers,477
+2018-07,Ice makers,537
+2018-08,Ice makers,516
+2018-09,Ice makers,403
+2018-10,Ice makers,412
+2018-11,Ice makers,348
+2018-12,Ice makers,510
+2019-01,Ice makers,515
+2019-02,Ice makers,334
+2019-03,Ice makers,349
+2019-04,Ice makers,384
+2019-05,Ice makers,602
+2019-06,Ice makers,653
+2019-07,Ice makers,928
+2019-08,Ice makers,835
+2019-09,Ice makers,687
+2019-10,Ice makers,508
+2019-11,Ice makers,505
+2019-12,Ice makers,732
+2020-01,Ice makers,956
+2020-02,Ice makers,722
+2020-03,Ice makers,547
+2020-04,Ice makers,567
+2020-05,Ice makers,919
+2020-06,Ice makers,1159
+2020-07,Ice makers,1602
+2020-08,Ice makers,1937
+2020-09,Ice makers,1597
+2020-10,Ice makers,1440
+2020-11,Ice makers,1273
+2020-12,Ice makers,1499
+2021-01,Ice makers,1718
+2021-02,Ice makers,1547
+2021-03,Ice makers,2276
+2021-04,Ice makers,2395
+2021-05,Ice makers,2199
+2021-06,Ice makers,2834
+2021-07,Ice makers,3716
+2021-08,Ice makers,3121
+2021-09,Ice makers,2190
+2021-10,Ice makers,1787
+2021-11,Ice makers,1409
+2021-12,Ice makers,1584
+2022-01,Ice makers,1689
+2022-02,Ice makers,1270
+2022-03,Ice makers,1479
+2022-04,Ice makers,1634
+2022-05,Ice makers,1956
+2022-06,Ice makers,2336
+2022-07,Ice makers,3307
+2022-08,Ice makers,3810
+2022-09,Ice makers,2954
+2022-10,Ice makers,2457
+2022-11,Ice makers,2047
+2022-12,Ice makers,2190
+2023-01,Ice makers,2262
+2023-02,Ice makers,1762
+2023-03,Ice makers,2201
+2023-04,Ice makers,1472
+2023-05,Ice makers,1038
+2023-06,Ice makers,773
+2023-07,Ice makers,636
+2023-08,Ice makers,394
+2023-09,Ice makers,31
+2016-01,Ovens & stoves,77
+2016-02,Ovens & stoves,74
+2016-03,Ovens & stoves,65
+2016-04,Ovens & stoves,63
+2016-05,Ovens & stoves,51
+2016-06,Ovens & stoves,43
+2016-07,Ovens & stoves,54
+2016-08,Ovens & stoves,61
+2016-09,Ovens & stoves,51
+2016-10,Ovens & stoves,60
+2016-11,Ovens & stoves,69
+2016-12,Ovens & stoves,86
+2017-01,Ovens & stoves,62
+2017-02,Ovens & stoves,55
+2017-03,Ovens & stoves,59
+2017-04,Ovens & stoves,40
+2017-05,Ovens & stoves,46
+2017-06,Ovens & stoves,36
+2017-07,Ovens & stoves,22
+2017-08,Ovens & stoves,28
+2017-09,Ovens & stoves,40
+2017-10,Ovens & stoves,28
+2017-11,Ovens & stoves,53
+2017-12,Ovens & stoves,43
+2018-01,Ovens & stoves,61
+2018-02,Ovens & stoves,66
+2018-03,Ovens & stoves,81
+2018-04,Ovens & stoves,54
+2018-05,Ovens & stoves,58
+2018-06,Ovens & stoves,55
+2018-07,Ovens & stoves,50
+2018-08,Ovens & stoves,51
+2018-09,Ovens & stoves,46
+2018-10,Ovens & stoves,68
+2018-11,Ovens & stoves,86
+2018-12,Ovens & stoves,92
+2019-01,Ovens & stoves,69
+2019-02,Ovens & stoves,66
+2019-03,Ovens & stoves,70
+2019-04,Ovens & stoves,55
+2019-05,Ovens & stoves,69
+2019-06,Ovens & stoves,56
+2019-07,Ovens & stoves,65
+2019-08,Ovens & stoves,49
+2019-09,Ovens & stoves,56
+2019-10,Ovens & stoves,64
+2019-11,Ovens & stoves,70
+2019-12,Ovens & stoves,77
+2020-01,Ovens & stoves,81
+2020-02,Ovens & stoves,57
+2020-03,Ovens & stoves,57
+2020-04,Ovens & stoves,48
+2020-05,Ovens & stoves,41
+2020-06,Ovens & stoves,61
+2020-07,Ovens & stoves,52
+2020-08,Ovens & stoves,47
+2020-09,Ovens & stoves,62
+2020-10,Ovens & stoves,56
+2020-11,Ovens & stoves,54
+2020-12,Ovens & stoves,68
+2021-01,Ovens & stoves,67
+2021-02,Ovens & stoves,70
+2021-03,Ovens & stoves,85
+2021-04,Ovens & stoves,100
+2021-05,Ovens & stoves,76
+2021-06,Ovens & stoves,72
+2021-07,Ovens & stoves,84
+2021-08,Ovens & stoves,51
+2021-09,Ovens & stoves,48
+2021-10,Ovens & stoves,44
+2021-11,Ovens & stoves,56
+2021-12,Ovens & stoves,71
+2022-01,Ovens & stoves,58
+2022-02,Ovens & stoves,54
+2022-03,Ovens & stoves,56
+2022-04,Ovens & stoves,42
+2022-05,Ovens & stoves,45
+2022-06,Ovens & stoves,51
+2022-07,Ovens & stoves,52
+2022-08,Ovens & stoves,58
+2022-09,Ovens & stoves,50
+2022-10,Ovens & stoves,47
+2022-11,Ovens & stoves,46
+2022-12,Ovens & stoves,63
+2023-01,Ovens & stoves,56
+2023-02,Ovens & stoves,62
+2023-03,Ovens & stoves,46
+2023-04,Ovens & stoves,39
+2023-05,Ovens & stoves,17
+2023-06,Ovens & stoves,13
+2023-07,Ovens & stoves,3
+2023-08,Ovens & stoves,5
+2016-01,Rangehoods,227
+2016-02,Rangehoods,222
+2016-03,Rangehoods,277
+2016-04,Rangehoods,221
+2016-05,Rangehoods,250
+2016-06,Rangehoods,223
+2016-07,Rangehoods,228
+2016-08,Rangehoods,242
+2016-09,Rangehoods,222
+2016-10,Rangehoods,250
+2016-11,Rangehoods,235
+2016-12,Rangehoods,292
+2017-01,Rangehoods,312
+2017-02,Rangehoods,234
+2017-03,Rangehoods,322
+2017-04,Rangehoods,261
+2017-05,Rangehoods,284
+2017-06,Rangehoods,228
+2017-07,Rangehoods,228
+2017-08,Rangehoods,300
+2017-09,Rangehoods,305
+2017-10,Rangehoods,284
+2017-11,Rangehoods,276
+2017-12,Rangehoods,294
+2018-01,Rangehoods,328
+2018-02,Rangehoods,364
+2018-03,Rangehoods,390
+2018-04,Rangehoods,308
+2018-05,Rangehoods,296
+2018-06,Rangehoods,287
+2018-07,Rangehoods,307
+2018-08,Rangehoods,306
+2018-09,Rangehoods,246
+2018-10,Rangehoods,277
+2018-11,Rangehoods,286
+2018-12,Rangehoods,346
+2019-01,Rangehoods,363
+2019-02,Rangehoods,295
+2019-03,Rangehoods,352
+2019-04,Rangehoods,377
+2019-05,Rangehoods,405
+2019-06,Rangehoods,471
+2019-07,Rangehoods,557
+2019-08,Rangehoods,441
+2019-09,Rangehoods,384
+2019-10,Rangehoods,372
+2019-11,Rangehoods,417
+2019-12,Rangehoods,641
+2020-01,Rangehoods,685
+2020-02,Rangehoods,538
+2020-03,Rangehoods,454
+2020-04,Rangehoods,320
+2020-05,Rangehoods,406
+2020-06,Rangehoods,433
+2020-07,Rangehoods,452
+2020-08,Rangehoods,456
+2020-09,Rangehoods,453
+2020-10,Rangehoods,486
+2020-11,Rangehoods,460
+2020-12,Rangehoods,508
+2021-01,Rangehoods,489
+2021-02,Rangehoods,509
+2021-03,Rangehoods,561
+2021-04,Rangehoods,567
+2021-05,Rangehoods,507
+2021-06,Rangehoods,454
+2021-07,Rangehoods,457
+2021-08,Rangehoods,397
+2021-09,Rangehoods,353
+2021-10,Rangehoods,383
+2021-11,Rangehoods,349
+2021-12,Rangehoods,381
+2022-01,Rangehoods,373
+2022-02,Rangehoods,280
+2022-03,Rangehoods,303
+2022-04,Rangehoods,293
+2022-05,Rangehoods,310
+2022-06,Rangehoods,323
+2022-07,Rangehoods,317
+2022-08,Rangehoods,351
+2022-09,Rangehoods,335
+2022-10,Rangehoods,321
+2022-11,Rangehoods,326
+2022-12,Rangehoods,328
+2023-01,Rangehoods,369
+2023-02,Rangehoods,318
+2023-03,Rangehoods,381
+2023-04,Rangehoods,272
+2023-05,Rangehoods,142
+2023-06,Rangehoods,80
+2023-07,Rangehoods,56
+2023-08,Rangehoods,44
+2023-09,Rangehoods,1
+2016-01,Washers & dryers,333
+2016-02,Washers & dryers,327
+2016-03,Washers & dryers,424
+2016-04,Washers & dryers,329
+2016-05,Washers & dryers,386
+2016-06,Washers & dryers,426
+2016-07,Washers & dryers,411
+2016-08,Washers & dryers,455
+2016-09,Washers & dryers,437
+2016-10,Washers & dryers,422
+2016-11,Washers & dryers,405
+2016-12,Washers & dryers,479
+2017-01,Washers & dryers,417
+2017-02,Washers & dryers,344
+2017-03,Washers & dryers,454
+2017-04,Washers & dryers,368
+2017-05,Washers & dryers,359
+2017-06,Washers & dryers,338
+2017-07,Washers & dryers,334
+2017-08,Washers & dryers,356
+2017-09,Washers & dryers,376
+2017-10,Washers & dryers,361
+2017-11,Washers & dryers,407
+2017-12,Washers & dryers,410
+2018-01,Washers & dryers,472
+2018-02,Washers & dryers,483
+2018-03,Washers & dryers,655
+2018-04,Washers & dryers,530
+2018-05,Washers & dryers,445
+2018-06,Washers & dryers,502
+2018-07,Washers & dryers,560
+2018-08,Washers & dryers,587
+2018-09,Washers & dryers,616
+2018-10,Washers & dryers,590
+2018-11,Washers & dryers,493
+2018-12,Washers & dryers,556
+2019-01,Washers & dryers,582
+2019-02,Washers & dryers,515
+2019-03,Washers & dryers,659
+2019-04,Washers & dryers,608
+2019-05,Washers & dryers,625
+2019-06,Washers & dryers,678
+2019-07,Washers & dryers,818
+2019-08,Washers & dryers,702
+2019-09,Washers & dryers,694
+2019-10,Washers & dryers,618
+2019-11,Washers & dryers,645
+2019-12,Washers & dryers,728
+2020-01,Washers & dryers,923
+2020-02,Washers & dryers,888
+2020-03,Washers & dryers,869
+2020-04,Washers & dryers,892
+2020-05,Washers & dryers,943
+2020-06,Washers & dryers,854
+2020-07,Washers & dryers,954
+2020-08,Washers & dryers,1235
+2020-09,Washers & dryers,1288
+2020-10,Washers & dryers,1285
+2020-11,Washers & dryers,1076
+2020-12,Washers & dryers,1077
+2021-01,Washers & dryers,2084
+2021-02,Washers & dryers,1626
+2021-03,Washers & dryers,1786
+2021-04,Washers & dryers,1878
+2021-05,Washers & dryers,1491
+2021-06,Washers & dryers,1350
+2021-07,Washers & dryers,1386
+2021-08,Washers & dryers,1546
+2021-09,Washers & dryers,1179
+2021-10,Washers & dryers,1116
+2021-11,Washers & dryers,935
+2021-12,Washers & dryers,910
+2022-01,Washers & dryers,1007
+2022-02,Washers & dryers,928
+2022-03,Washers & dryers,1289
+2022-04,Washers & dryers,1173
+2022-05,Washers & dryers,1054
+2022-06,Washers & dryers,1066
+2022-07,Washers & dryers,1211
+2022-08,Washers & dryers,1340
+2022-09,Washers & dryers,1141
+2022-10,Washers & dryers,1145
+2022-11,Washers & dryers,1082
+2022-12,Washers & dryers,1020
+2023-01,Washers & dryers,1100
+2023-02,Washers & dryers,1015
+2023-03,Washers & dryers,1390
+2023-04,Washers & dryers,874
+2023-05,Washers & dryers,513
+2023-06,Washers & dryers,455
+2023-07,Washers & dryers,310
+2023-08,Washers & dryers,237
+2023-09,Washers & dryers,14

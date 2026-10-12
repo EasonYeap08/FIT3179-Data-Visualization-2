@@ -1,0 +1,46 @@
+category,price_band,band_order,avg_rating,reviews
+Benchtop dishwashers,Under $100,0,3.24,136
+Benchtop dishwashers,$100–249,1,3.62,138
+Benchtop dishwashers,$250–499,2,4.2,5459
+Benchtop dishwashers,$500–999,3,3.38,119
+Cooktops,Under $100,0,3.91,1378
+Cooktops,$100–249,1,3.68,2492
+Cooktops,$250–499,2,4.01,2908
+Cooktops,$500–999,3,4.02,950
+Cooktops,"$1,000+",4,4.01,373
+Dishwashers,$250–499,2,3.98,186
+Dishwashers,$500–999,3,3.33,278
+Dishwashers,"$1,000+",4,3.24,42
+Drinks fridges,Under $100,0,3.34,247
+Drinks fridges,$100–249,1,3.76,1458
+Drinks fridges,$250–499,2,3.67,2343
+Drinks fridges,$500–999,3,3.91,1563
+Drinks fridges,"$1,000+",4,4.12,655
+Freezers,Under $100,0,4.25,152
+Freezers,$100–249,1,4.08,4129
+Freezers,$250–499,2,3.91,5990
+Freezers,$500–999,3,3.75,604
+Freezers,"$1,000+",4,3.79,116
+Fridges,Under $100,0,4.28,6709
+Fridges,$100–249,1,3.98,2251
+Fridges,$250–499,2,3.85,791
+Fridges,$500–999,3,3.45,997
+Fridges,"$1,000+",4,2.89,589
+Ice makers,Under $100,0,3.93,28583
+Ice makers,$100–249,1,3.78,23914
+Ice makers,$250–499,2,3.58,8558
+Ice makers,$500–999,3,3.56,1510
+Ice makers,"$1,000+",4,3.32,1458
+Ovens & stoves,Under $100,0,4.15,91
+Ovens & stoves,$500–999,3,3.24,708
+Ovens & stoves,"$1,000+",4,3.39,936
+Rangehoods,Under $100,0,4.33,2016
+Rangehoods,$100–249,1,4.13,7442
+Rangehoods,$250–499,2,4.13,5913
+Rangehoods,$500–999,3,3.97,1657
+Rangehoods,"$1,000+",4,4.27,503
+Washers & dryers,Under $100,0,3.68,18536
+Washers & dryers,$100–249,1,4.03,17520
+Washers & dryers,$250–499,2,4.1,9036
+Washers & dryers,$500–999,3,3.75,280
+Washers & dryers,"$1,000+",4,3.07,430
