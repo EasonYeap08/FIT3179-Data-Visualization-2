@@ -45,7 +45,7 @@
   "hconcat": [
     {
       "width": 620,
-      "height": 400,
+      "height": 330,
       "projection": {"type": "equalEarth", "rotate": [-115, 0]},
       "layer": [
         {
@@ -104,8 +104,16 @@
             "size": {
               "field": "value",
               "type": "quantitative",
-              "scale": {"type": "sqrt", "range": [10, 500], "zero": true},
-              "legend": null
+              "scale": {"type": "linear", "range": [0, 1000], "zero": true},
+              "legend": {
+                "title": "Import value (US$ million)",
+                "orient": "bottom",
+                "symbolFillColor": "#1c5cab",
+                "symbolStrokeColor": "#ffffff",
+                "format": ",.0f",
+                "direction": "horizontal",
+                "values": [100, 500, 1500]
+              }
             },
             "tooltip": [
               {"field": "country", "title": "From"},

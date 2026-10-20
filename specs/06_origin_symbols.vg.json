@@ -1,8 +1,6 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "description": "Map 3 (proportional symbol map): where the appliance models registered for sale in Australia are made, sized by number of models and coloured by their average energy star rating (Energy Rating registration data).",
-  "width": "container",
-  "height": 420,
+  "description": "Map 3 (proportional symbol maps): where the appliance models registered for sale in Australia are made. A world map plus an enlarged Europe panel, sharing one size and colour scale. Circle area = number of models, colour = average energy star rating. Overlapping world circles are nudged apart (lon_d/lat_d, computed in scripts/prepare_data.py) with a leader line to the true location.",
   "params": [
     {
       "name": "kind",
@@ -20,104 +18,370 @@
       }
     }
   ],
-  "projection": {"type": "equalEarth", "rotate": [-60, 0], "center": [0, 20], "scale": 175},
-  "layer": [
+  "hconcat": [
     {
-      "data": {
-        "url": "data/world-110m.json",
-        "format": {"type": "topojson", "feature": "countries"}
+      "width": 560,
+      "height": 330,
+      "title": {
+        "text": "World",
+        "anchor": "start",
+        "font": "Barlow Condensed",
+        "fontSize": 17,
+        "fontWeight": 600,
+        "color": "#1e252b"
       },
-      "mark": {"type": "geoshape", "fill": "#e7e5e0", "stroke": "#fcfcfb", "strokeWidth": 0.5}
+      "projection": {
+        "type": "equalEarth",
+        "rotate": [-60, 0],
+        "center": [0, 20],
+        "scale": 110,
+        "translate": [280, 165]
+      },
+      "layer": [
+        {
+          "data": {
+            "url": "data/world-110m.json",
+            "format": {"type": "topojson", "feature": "countries"}
+          },
+          "mark": {"type": "geoshape", "fill": "#e7e5e0", "stroke": "#fcfcfb", "strokeWidth": 0.5}
+        },
+        {
+          "data": {
+            "values": [
+              {
+                "type": "Feature",
+                "geometry": {
+                  "type": "Polygon",
+                  "coordinates": [[[-12, 35], [-12, 60], [32, 60], [32, 35], [-12, 35]]]
+                },
+                "properties": {}
+              }
+            ]
+          },
+          "mark": {
+            "type": "geoshape",
+            "filled": false,
+            "stroke": "#1e252b",
+            "strokeWidth": 1.2,
+            "strokeDash": [4, 3]
+          }
+        },
+        {
+          "data": {"values": [{"lon": -12, "lat": 60, "t": "Europe, enlarged on the right"}]},
+          "mark": {
+            "type": "text",
+            "align": "left",
+            "baseline": "bottom",
+            "dy": -3,
+            "fontSize": 11,
+            "color": "#1e252b"
+          },
+          "encoding": {
+            "longitude": {"field": "lon", "type": "quantitative"},
+            "latitude": {"field": "lat", "type": "quantitative"},
+            "text": {"field": "t"}
+          }
+        },
+        {
+          "data": {
+            "url": "data/model_origins.csv",
+            "format": {
+              "type": "csv",
+              "parse": {
+                "iso": "number",
+                "lon": "number",
+                "lat": "number",
+                "models": "number",
+                "avg_stars": "number",
+                "lon_d": "number",
+                "lat_d": "number",
+                "moved_px": "number"
+              }
+            }
+          },
+          "transform": [
+            {"filter": "datum.type == kind && datum.panel == 'World' && datum.moved_px > 2"}
+          ],
+          "mark": {"type": "rule", "color": "#5b6670", "strokeWidth": 1},
+          "encoding": {
+            "longitude": {"field": "lon", "type": "quantitative"},
+            "latitude": {"field": "lat", "type": "quantitative"},
+            "longitude2": {"field": "lon_d"},
+            "latitude2": {"field": "lat_d"}
+          }
+        },
+        {
+          "data": {
+            "url": "data/model_origins.csv",
+            "format": {
+              "type": "csv",
+              "parse": {
+                "iso": "number",
+                "lon": "number",
+                "lat": "number",
+                "models": "number",
+                "avg_stars": "number",
+                "lon_d": "number",
+                "lat_d": "number",
+                "moved_px": "number"
+              }
+            }
+          },
+          "transform": [
+            {"filter": "datum.type == kind && datum.panel == 'World' && datum.moved_px > 2"}
+          ],
+          "mark": {"type": "circle", "size": 10, "color": "#1e252b", "opacity": 1},
+          "encoding": {
+            "longitude": {"field": "lon", "type": "quantitative"},
+            "latitude": {"field": "lat", "type": "quantitative"}
+          }
+        },
+        {
+          "data": {
+            "url": "data/model_origins.csv",
+            "format": {
+              "type": "csv",
+              "parse": {
+                "iso": "number",
+                "lon": "number",
+                "lat": "number",
+                "models": "number",
+                "avg_stars": "number",
+                "lon_d": "number",
+                "lat_d": "number",
+                "moved_px": "number"
+              }
+            }
+          },
+          "transform": [
+            {
+              "joinaggregate": [{"op": "sum", "field": "models", "as": "total"}],
+              "groupby": ["type"]
+            },
+            {"calculate": "datum.models / datum.total", "as": "share"},
+            {"filter": "datum.type == kind && datum.panel == 'World'"}
+          ],
+          "mark": {"type": "circle", "opacity": 0.9, "stroke": "#ffffff", "strokeWidth": 1.5},
+          "encoding": {
+            "longitude": {"field": "lon_d", "type": "quantitative"},
+            "latitude": {"field": "lat_d", "type": "quantitative"},
+            "size": {
+              "field": "models",
+              "type": "quantitative",
+              "title": "Models for sale",
+              "scale": {"type": "linear", "domain": [0, 3000], "range": [6, 1800]},
+              "legend": {
+                "values": [100, 1000, 2500],
+                "orient": "bottom",
+                "direction": "horizontal",
+                "symbolFillColor": "#e3e7ea",
+                "symbolStrokeColor": "#5b6670"
+              }
+            },
+            "color": {
+              "field": "avg_stars",
+              "type": "quantitative",
+              "title": "Average star rating",
+              "scale": {"range": ["#f3c9a8", "#eb6834", "#7a2e10"]},
+              "legend": {
+                "orient": "bottom",
+                "direction": "horizontal",
+                "gradientLength": 160,
+                "format": ".1f"
+              }
+            },
+            "order": {"field": "models", "sort": "descending"},
+            "tooltip": [
+              {"field": "country", "title": "Made in"},
+              {"field": "type", "title": "Appliance"},
+              {"field": "models", "title": "Models for sale", "format": ","},
+              {"field": "share", "title": "Share of all models", "format": ".0%"},
+              {"field": "avg_stars", "title": "Average stars", "format": ".1f"}
+            ]
+          }
+        },
+        {
+          "data": {
+            "url": "data/model_origins.csv",
+            "format": {
+              "type": "csv",
+              "parse": {
+                "iso": "number",
+                "lon": "number",
+                "lat": "number",
+                "models": "number",
+                "avg_stars": "number",
+                "lon_d": "number",
+                "lat_d": "number",
+                "moved_px": "number"
+              }
+            }
+          },
+          "transform": [
+            {"filter": "datum.type == kind && datum.panel == 'World'"},
+            {
+              "window": [{"op": "rank", "as": "rank"}],
+              "sort": [{"field": "models", "order": "descending"}]
+            },
+            {"filter": "datum.rank <= 4"},
+            {
+              "calculate": "datum.country == 'United States of America' ? 'USA' : datum.country",
+              "as": "name"
+            }
+          ],
+          "mark": {
+            "type": "text",
+            "fontSize": 11,
+            "fontWeight": 700,
+            "color": "#1e252b",
+            "dy": -10,
+            "baseline": "bottom"
+          },
+          "encoding": {
+            "longitude": {"field": "lon_d", "type": "quantitative"},
+            "latitude": {"field": "lat_d", "type": "quantitative"},
+            "text": {"field": "name"}
+          }
+        }
+      ]
     },
     {
-      "data": {
-        "url": "data/model_origins.csv",
-        "format": {
-          "type": "csv",
-          "parse": {
-            "iso": "number",
-            "lon": "number",
-            "lat": "number",
-            "models": "number",
-            "avg_stars": "number"
-          }
-        }
+      "width": 330,
+      "height": 330,
+      "title": {
+        "text": "Europe, enlarged",
+        "anchor": "start",
+        "font": "Barlow Condensed",
+        "fontSize": 17,
+        "fontWeight": 600,
+        "color": "#1e252b"
       },
-      "transform": [
-        {"filter": "datum.type == kind"},
-        {"joinaggregate": [{"op": "sum", "field": "models", "as": "total"}]},
-        {"calculate": "datum.models / datum.total", "as": "share"}
-      ],
-      "mark": {"type": "circle", "opacity": 0.85, "stroke": "#ffffff", "strokeWidth": 1.5},
-      "encoding": {
-        "longitude": {"field": "lon", "type": "quantitative"},
-        "latitude": {"field": "lat", "type": "quantitative"},
-        "size": {
-          "field": "models",
-          "type": "quantitative",
-          "title": "Models for sale",
-          "scale": {"type": "sqrt", "range": [25, 2600], "domain": [0, 2500]},
-          "legend": {
-            "values": [25, 250, 1000, 2500],
-            "orient": "bottom-left",
-            "symbolFillColor": "#b7d3f6",
-            "symbolStrokeColor": "#256abf"
-          }
-        },
-        "color": {
-          "field": "avg_stars",
-          "type": "quantitative",
-          "title": "Average star rating",
-          "scale": {"range": ["#f3c9a8", "#eb6834", "#7a2e10"]},
-          "legend": {
-            "orient": "bottom-right",
-            "direction": "horizontal",
-            "gradientLength": 160,
-            "format": ".1f"
-          }
-        },
-        "order": {"field": "models", "sort": "descending"},
-        "tooltip": [
-          {"field": "country", "title": "Made in"},
-          {"field": "type", "title": "Appliance"},
-          {"field": "models", "title": "Models for sale", "format": ","},
-          {"field": "share", "title": "Share of all models", "format": ".0%"},
-          {"field": "avg_stars", "title": "Average stars", "format": ".1f"}
-        ]
-      }
-    },
-    {
-      "data": {
-        "url": "data/model_origins.csv",
-        "format": {
-          "type": "csv",
-          "parse": {
-            "iso": "number",
-            "lon": "number",
-            "lat": "number",
-            "models": "number",
-            "avg_stars": "number"
-          }
-        }
+      "projection": {
+        "type": "conicEqualArea",
+        "parallels": [40, 58],
+        "rotate": [-10, 0],
+        "center": [0, 47.5],
+        "scale": 620,
+        "translate": [165, 165]
       },
-      "transform": [
-        {"filter": "datum.type == kind"},
+      "layer": [
         {
-          "window": [{"op": "rank", "as": "rank"}],
-          "sort": [{"field": "models", "order": "descending"}]
+          "data": {
+            "url": "data/world-110m.json",
+            "format": {"type": "topojson", "feature": "countries"}
+          },
+          "mark": {"type": "geoshape", "fill": "#e7e5e0", "stroke": "#fcfcfb", "strokeWidth": 0.5}
         },
-        {"filter": "datum.rank <= 4"},
         {
-          "calculate": "datum.country == 'United States of America' ? 'USA' : datum.country",
-          "as": "name"
+          "data": {
+            "url": "data/model_origins.csv",
+            "format": {
+              "type": "csv",
+              "parse": {
+                "iso": "number",
+                "lon": "number",
+                "lat": "number",
+                "models": "number",
+                "avg_stars": "number",
+                "lon_d": "number",
+                "lat_d": "number",
+                "moved_px": "number"
+              }
+            }
+          },
+          "transform": [
+            {
+              "joinaggregate": [{"op": "sum", "field": "models", "as": "total"}],
+              "groupby": ["type"]
+            },
+            {"calculate": "datum.models / datum.total", "as": "share"},
+            {"filter": "datum.type == kind && datum.panel == 'Europe'"}
+          ],
+          "mark": {"type": "circle", "opacity": 0.9, "stroke": "#ffffff", "strokeWidth": 1.5},
+          "encoding": {
+            "longitude": {"field": "lon", "type": "quantitative"},
+            "latitude": {"field": "lat", "type": "quantitative"},
+            "size": {
+              "field": "models",
+              "type": "quantitative",
+              "title": "Models for sale",
+              "scale": {"type": "linear", "domain": [0, 3000], "range": [6, 1800]},
+              "legend": {
+                "values": [100, 1000, 2500],
+                "orient": "bottom",
+                "direction": "horizontal",
+                "symbolFillColor": "#e3e7ea",
+                "symbolStrokeColor": "#5b6670"
+              }
+            },
+            "color": {
+              "field": "avg_stars",
+              "type": "quantitative",
+              "title": "Average star rating",
+              "scale": {"range": ["#f3c9a8", "#eb6834", "#7a2e10"]},
+              "legend": {
+                "orient": "bottom",
+                "direction": "horizontal",
+                "gradientLength": 160,
+                "format": ".1f"
+              }
+            },
+            "order": {"field": "models", "sort": "descending"},
+            "tooltip": [
+              {"field": "country", "title": "Made in"},
+              {"field": "type", "title": "Appliance"},
+              {"field": "models", "title": "Models for sale", "format": ","},
+              {"field": "share", "title": "Share of all models", "format": ".0%"},
+              {"field": "avg_stars", "title": "Average stars", "format": ".1f"}
+            ]
+          }
+        },
+        {
+          "data": {
+            "url": "data/model_origins.csv",
+            "format": {
+              "type": "csv",
+              "parse": {
+                "iso": "number",
+                "lon": "number",
+                "lat": "number",
+                "models": "number",
+                "avg_stars": "number",
+                "lon_d": "number",
+                "lat_d": "number",
+                "moved_px": "number"
+              }
+            }
+          },
+          "transform": [
+            {"filter": "datum.type == kind && datum.panel == 'Europe'"},
+            {
+              "window": [{"op": "rank", "as": "rank"}],
+              "sort": [{"field": "models", "order": "descending"}]
+            },
+            {"filter": "datum.rank <= 5"},
+            {
+              "calculate": "datum.country == 'United States of America' ? 'USA' : datum.country",
+              "as": "name"
+            }
+          ],
+          "mark": {
+            "type": "text",
+            "fontSize": 11,
+            "fontWeight": 700,
+            "color": "#1e252b",
+            "dy": -9,
+            "baseline": "bottom"
+          },
+          "encoding": {
+            "longitude": {"field": "lon", "type": "quantitative"},
+            "latitude": {"field": "lat", "type": "quantitative"},
+            "text": {"field": "name"}
+          }
         }
-      ],
-      "mark": {"type": "text", "fontSize": 11, "fontWeight": 700, "dy": 0, "color": "#1f1f1d"},
-      "encoding": {
-        "longitude": {"field": "lon", "type": "quantitative"},
-        "latitude": {"field": "lat", "type": "quantitative"},
-        "text": {"field": "name"}
-      }
+      ]
     }
-  ]
+  ],
+  "spacing": 24,
+  "resolve": {"scale": {"size": "shared", "color": "shared"}}
 }

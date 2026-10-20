@@ -54,9 +54,17 @@
       }
     },
     {
-      "transform": [{"filter": "month(datum.date) >= 10"}],
-      "mark": {"type": "text", "fontSize": 10, "fontWeight": 600, "color": "#ffffff"},
-      "encoding": {"text": {"field": "vs_avg", "type": "quantitative", "format": "+.0%"}}
+      "transform": [
+        {
+          "filter": "datum.year <= 2025 && (month(datum.date) >= 10 || month(datum.date) == 1)",
+          "description": "2026 is a part year, so its average month is not comparable"
+        }
+      ],
+      "mark": {"type": "text", "fontSize": 10, "fontWeight": 600},
+      "encoding": {
+        "text": {"field": "vs_avg", "type": "quantitative", "format": "+.0%"},
+        "color": {"condition": {"test": "datum.vs_avg < 0", "value": "#1e252b"}, "value": "#ffffff"}
+      }
     }
   ]
 }

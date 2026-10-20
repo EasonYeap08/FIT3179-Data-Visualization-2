@@ -191,6 +191,60 @@
             "y": {"field": "index", "type": "quantitative", "scale": {"domain": [60, 200]}},
             "text": {"field": "state"}
           }
+        },
+        {
+          "data": {
+            "values": [
+              {"date": "2020-09-01", "index": 94.6, "label_y": 72, "t": "VIC lockdown: shops shut"},
+              {"date": "2020-11-01", "index": 143, "label_y": 182, "t": "VIC shops reopen: +43%"}
+            ]
+          },
+          "mark": {"type": "rule", "color": "#1e252b", "strokeWidth": 1},
+          "encoding": {
+            "x": {"field": "date", "type": "temporal"},
+            "y": {"field": "index", "type": "quantitative", "scale": {"domain": [60, 200]}},
+            "y2": {"field": "label_y"}
+          }
+        },
+        {
+          "data": {
+            "values": [
+              {"date": "2020-09-01", "index": 94.6, "label_y": 72, "t": "VIC lockdown: shops shut"},
+              {"date": "2020-11-01", "index": 143, "label_y": 182, "t": "VIC shops reopen: +43%"}
+            ]
+          },
+          "mark": {
+            "type": "circle",
+            "size": 60,
+            "color": "#eb6834",
+            "stroke": "#1e252b",
+            "strokeWidth": 1.5
+          },
+          "encoding": {
+            "x": {"field": "date", "type": "temporal"},
+            "y": {"field": "index", "type": "quantitative", "scale": {"domain": [60, 200]}}
+          }
+        },
+        {
+          "data": {
+            "values": [
+              {"date": "2020-09-01", "index": 94.6, "label_y": 72, "t": "VIC lockdown: shops shut"},
+              {"date": "2020-11-01", "index": 143, "label_y": 182, "t": "VIC shops reopen: +43%"}
+            ]
+          },
+          "mark": {
+            "type": "text",
+            "align": "left",
+            "dx": 5,
+            "fontSize": 12,
+            "fontWeight": 600,
+            "color": "#1e252b"
+          },
+          "encoding": {
+            "x": {"field": "date", "type": "temporal"},
+            "y": {"field": "label_y", "type": "quantitative", "scale": {"domain": [60, 200]}},
+            "text": {"field": "t"}
+          }
         }
       ]
     }
