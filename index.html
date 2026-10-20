@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Plugged In: Australia's Home Appliances</title>
-  <meta name="description" content="A data story about the appliances Australians buy: the small-appliance boom, where they are made, what the energy star label really saves you, and what owners think.">
+  <meta name="description" content="Australia's home appliances: purchasing trends, brands, product features and customer ratings, explored in five questions.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Barlow:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
@@ -18,11 +18,11 @@
 <nav class="nav">
   <div class="wrap">
     <a class="brand" href="#">Plugged In</a>
-    <a href="#boom">Q1 Buying</a>
+    <a href="#boom">Q1 Trends</a>
     <a href="#spend">Q2 Spending</a>
     <a href="#origin">Q3 Origins</a>
-    <a href="#stars">Q4 Stars</a>
-    <a href="#owners">Q5 Owners</a>
+    <a href="#stars">Q4 Brands</a>
+    <a href="#owners">Q5 Ratings</a>
     <a href="#sources">Sources</a>
   </div>
 </nav>
@@ -30,9 +30,9 @@
 <header class="hero">
   <div class="wrap hero-grid">
     <div class="hero-text">
-      <h1>What's plugged in at home?</h1>
-      <p class="lede">Five questions about the appliances Australians buy, answered with government,
-        UN and university data.</p>
+      <h1>Australia's home appliances</h1>
+      <p class="lede">Purchasing trends, brands, product features and customer ratings: five questions
+        about the appliances we buy, answered with government, UN and university data.</p>
     </div>
     <section class="plate" aria-label="The five research questions and their short answers">
       <div class="plate-top">
@@ -56,11 +56,11 @@
         </svg>
       </div>
       <ol class="plate-rows">
-        <li><a href="#boom"><span class="q">What are we buying more of?</span><span class="a">Air fryers +129%</span></a></li>
-        <li><a href="#spend"><span class="q">When and where do we spend?</span><span class="a">November and December</span></a></li>
-        <li><a href="#origin"><span class="q">Where are our appliances made?</span><span class="a">China, about 1 in 2 dollars</span></a></li>
-        <li><a href="#stars"><span class="q">Is an extra star worth it?</span><span class="a">Dryers: $1,000+ over 10 years</span></a></li>
-        <li><a href="#owners"><span class="q">Does paying more buy a happier owner?</span><span class="a">No</span></a></li>
+        <li><a href="#boom"><span class="q">What are we buying more of?<small>Purchasing trends</small></span><span class="a">Air fryers +129%</span></a></li>
+        <li><a href="#spend"><span class="q">When and where do we spend?<small>Purchasing trends</small></span><span class="a">November and December</span></a></li>
+        <li><a href="#origin"><span class="q">Where are our appliances made?<small>Product origins</small></span><span class="a">China, about 1 in 2 dollars</span></a></li>
+        <li><a href="#stars"><span class="q">Which brands save power?<small>Brands and product features</small></span><span class="a">Miele, LG, Bosch and 4 more</span></a></li>
+        <li><a href="#owners"><span class="q">Does paying more buy a happier owner?<small>Customer ratings</small></span><span class="a">No</span></a></li>
       </ol>
       <p class="plate-foot">Built from 11,997 labelled models, 12 customs codes, 92 months of ABS spending
         data and 308,019 customer reviews.</p>
@@ -78,12 +78,15 @@
       <h2>What are we buying more of?</h2>
       <p class="answer">Benchtop gadgets. Imports of the cookers category that includes air fryers rose 129% and vacuums 91% since 2015, while TVs (+14%) and washing machines (+13%) barely moved.</p>
     </header>
+<div class="row">
     <p class="intro">
-      Of the nearly 12,000 labelled appliance models on sale, only 21 list Australia as a place of
-      manufacture, so counting what crosses the border is a good way to see what we are buying. Over the last ten years the big things in our homes,
-      such as fridges, washing machines and TVs, have barely changed. The small things on the kitchen
-      bench have taken off.
+      Of the nearly 12,000 labelled appliance models on sale, only <strong>21</strong> list Australia as a place of
+      manufacture, so counting what crosses the border is a good way to see what we are buying. Over the last
+      ten years the big things in our homes, such as fridges, washing machines and TVs, grew slowly.
+      The <span class="k k-or">small things on the kitchen bench</span> have taken off.
     </p>
+    <aside class="note"><b>21</b><span>labelled models that list Australia as a place of manufacture [<a href="#d1">D1</a>]</span></aside>
+    </div>
 
     <figure class="viz">
       <h3>Small appliances grew much faster than big ones</h3>
@@ -92,26 +95,26 @@
         scale doubles at each gridline so that every line is visible.</p>
       <span class="how">Hover over a line to highlight it</span>
       <div id="vis-slope" class="chart"></div>
-      <figcaption>Source: <a href="https://comtradeplus.un.org/">UN Comtrade</a>, Australian imports by HS code.
-        "Ovens, cookers &amp; air fryers" is HS 851660, the code customs authorities use for benchtop air fryers
-        (e.g. <a href="https://rulings.cbp.gov/ruling/N298195">US CBP ruling N298195</a>). Air conditioners are left out:
-        their code (HS 841510) was widened in 2017 to include ceiling and floor units, so 2015 and 2025 are not comparable.</figcaption>
+      <figcaption>Data: <a href="#d2">D2</a>. "Ovens, cookers &amp; air fryers" is the customs code used for benchtop air fryers [<a href="#r5">R5</a>].
+        Air conditioners are left out because their customs code was widened in 2017.</figcaption>
     </figure>
 
+<div class="row">
     <p>
-      Vacuum cleaners (+91%) and the cookers category that includes air fryers (+129%) grew far faster
-      than Australia's population, which rose 16% over the same ten years. The heatmap below shows the path year by year. The
-      COVID-19 years of 2020–22 stand out as everyone set up home. Many categories cooled off in
-      2023, then bench-top gadgets climbed again to new records.
+      Vacuum cleaners (<strong>+91%</strong>) and the cookers category that includes air fryers (<strong>+129%</strong>)
+      grew far faster than Australia's population, which rose <strong>16%</strong> over the same ten years. The heatmap
+      below shows the path year by year. The COVID-19 years of 2020–22 stand out as everyone set up home.
+      Many categories cooled off in 2023, then benchtop gadgets climbed again to new records.
     </p>
+    <aside class="note"><b>+16%</b><span>Australia's population growth, June 2015 to June 2025 [<a href="#d4">D4</a>]</span></aside>
+    </div>
 
     <figure class="viz">
       <h3>The path there: change compared with 2015, year by year</h3>
       <p class="sub">Each cell compares that year's imports with 2015. Blue means more than 2015,
         red means fewer. Labels show each row's peak and its 2025 value.</p>
       <div id="vis-heat" class="chart"></div>
-      <figcaption>Source: UN Comtrade. Blank cell = quantity not reported for that year. Population growth: ABS
-        estimated resident population, June 2015 to June 2025.</figcaption>
+      <figcaption>Data: <a href="#d2">D2</a>. A blank cell means the quantity was not reported that year.</figcaption>
     </figure>
   </div>
 </section>
@@ -124,49 +127,55 @@
       <h2>When and where do we spend?</h2>
       <p class="answer">Across Australia, spending peaks in November and December every year. Per person, the Northern Territory spends the most and the ACT the least.</p>
     </header>
+<div class="row">
     <p class="intro">
       The Australian Bureau of Statistics tracks what households spend each month on
       "furnishings and household equipment", which covers household appliances and tools as well as
-      furniture, floor coverings and household goods.
+      furniture, floor coverings and household goods [<a href="#r7">R7</a>].
       Two patterns jump out: <em>when</em> in the year we buy, and how the pandemic hit each state differently.
     </p>
+    <aside class="note"><b>$2,359</b><span>spent per Australian on furnishings and household equipment in the 12 months to August 2026 [<a href="#d3">D3</a>, <a href="#d4">D4</a>]</span></aside>
+    </div>
 
     <figure class="viz">
       <h3>Every year, spending peaks in November and December</h3>
       <p class="sub">Monthly spending across Australia. Darker = more spent. The labels show how far
-        November and December were above that year's average month.</p>
+        February, November and December were from that year's average month.</p>
       <div id="vis-calendar" class="chart"></div>
-      <figcaption>Source: <a href="https://www.abs.gov.au/statistics/economy/finance/monthly-household-spending-indicator">ABS Monthly Household Spending Indicator</a>,
-        category "Furnishings and household equipment", current prices, original series, Jan 2019 – Aug 2026.</figcaption>
+      <figcaption>Data: <a href="#d3">D3</a>, January 2019 to August 2026, not seasonally adjusted.</figcaption>
     </figure>
 
+<div class="row">
     <div class="callout">
-      <strong>Black Friday has caught up with Christmas.</strong> In 2019, November was only 13% above
+      <strong>Black Friday has caught up with Christmas.</strong> In 2019, November was only <strong>13%</strong> above
       an average month while December was 25% above. By 2025 the two months were level, both about
-      25% above average. The ABS itself credited Black Friday sales for the November 2025 rise, when this
-      category grew more than any other
-      (<a href="https://www.abs.gov.au/media-centre/media-releases/household-spending-remains-strong-november">ABS, 12 Jan 2026</a>).
+      <strong>25%</strong> above average. The ABS itself credited Black Friday sales for the November 2025 rise, when this
+      category grew more than any other [<a href="#r6">R6</a>]. February is the quietest month every year.
+    </div>
+    <aside class="note"><b>13% → 25%</b><span>how far November rose above an average month, 2019 to 2025 [<a href="#d3">D3</a>]</span></aside>
     </div>
 
     <figure class="viz">
       <h3>Map 1: Spending per person, and how each state rode out COVID</h3>
       <p class="sub">Left: spending per person over the 12 months to August 2026 (choropleth map).
-        Right: each state's monthly spending compared with its own average month in 2019 (100 = normal).</p>
+        Right: each state's monthly spending compared with its own average month in 2019 (100 = normal).
+        The orange line is the selected state; grey lines are the other states.</p>
       <span class="how">Click a state to follow it on the right. Double-click to clear.</span>
       <div id="vis-states" class="chart"></div>
-      <figcaption>Sources: ABS Monthly Household Spending Indicator; ABS
-        <a href="https://www.abs.gov.au/statistics/people/population/national-state-and-territory-population">National, state and territory population</a> (March quarter 2026).
-        State boundaries: ABS Australian Statistical Geography Standard (ASGS) 2021, simplified.
-        Shaded band: 23 March 2020 (first business closures) to 21 October 2021 (end of Melbourne's last lockdown).</figcaption>
+      <figcaption>Data: <a href="#d3">D3</a>, <a href="#d4">D4</a>, <a href="#m1">M1</a>. Shaded band: 23 March 2020 (first business closures) to 21 October 2021
+        (end of Melbourne's last lockdown) [<a href="#r8">R8</a>].</figcaption>
     </figure>
 
+<div class="row">
     <p>
       The pandemic was a home-improvement boom almost everywhere. By September 2020, most states were
-      spending 15–25% more than in 2019. Victoria was the exception. During Melbourne's Stage 4 lockdown,
-      when most shops were shut from 5 August to 28 October 2020, its spending fell <em>below</em> 2019 levels,
-      then jumped to 43% above in November once stores reopened. Today, people in the Northern Territory, Queensland and South Australia spend the most per
-      head, and Canberrans the least.
+      spending <strong>15–25%</strong> more than in 2019. <span class="k k-or">Victoria</span> was the exception. During
+      Melbourne's Stage 4 lockdown, when most shops were shut from 5 August to 28 October 2020 [<a href="#r8">R8</a>], its spending
+      fell <em>below</em> 2019 levels, then jumped to <strong>43%</strong> above in November once stores reopened. Today,
+      people in the Northern Territory, Queensland and South Australia spend the most per head, and Canberrans the least.
     </p>
+    <aside class="note"><b>+43%</b><span>Victoria's spending in November 2020 compared with its 2019 average month [<a href="#d3">D3</a>]</span></aside>
+    </div>
   </div>
 </section>
 
@@ -178,44 +187,53 @@
       <h2>Where are our appliances made?</h2>
       <p class="answer">Almost all of them in Asia and Europe. China alone supplied about half of the appliances imported in 2025, by value.</p>
     </header>
+<div class="row">
     <p class="intro">
       Hardly any of our appliances are made here. So where do they come from? Two independent datasets
       tell the same story: customs records of what is shipped in, and the government register of every
       model that carries an energy rating label.
     </p>
+    <aside class="note"><b>52%</b><span>of 2025 appliance import value with a named origin came from China [<a href="#d2">D2</a>]</span></aside>
+    </div>
 
     <figure class="viz">
       <h3>Map 2: Following the money: where our appliances are shipped from</h3>
       <p class="sub">Value of appliances imported in 2025. Thicker lines and bigger circles mean more
         money. Pick an appliance to see how its supply chain changes.</p>
       <div id="vis-flow" class="chart"></div>
-      <figcaption>Source: UN Comtrade, 2025, all 12 appliance codes shown in Chapter 1. Values are
-        in US dollars, as reported to the UN. Partners under US$1 m are not drawn. About 6% of value
-        is recorded by the UN as "Areas, not elsewhere specified" and is left out.</figcaption>
+      <figcaption>Data: <a href="#d2">D2</a>, <a href="#m2">M2</a>. Values in US dollars. Partners under US$1 m are not drawn; the 6% of value
+        the UN records as "Areas, not elsewhere specified" is left out.</figcaption>
     </figure>
 
+<div class="row">
     <p>
-      China dominates small appliances, supplying 93% of microwaves and 62% of vacuums by value. Bigger
-      appliances have more varied supply chains. Thailand and Poland supply most clothes dryers,
+      China dominates small appliances, supplying <strong>93%</strong> of microwaves and <strong>62%</strong> of vacuums
+      by value. Bigger appliances have more varied supply chains. Thailand and Poland supply most clothes dryers,
       Germany and Czechia supply 39% of dishwashers, Germany and Italy supply 36% of ovens and cookers,
       and Vietnam and Indonesia supply 44% of our televisions.
     </p>
+    <aside class="note"><b>93%</b><span>of microwave ovens imported in 2025, by value, came from China [<a href="#d2">D2</a>]</span></aside>
+    </div>
 
     <figure class="viz">
       <h3>Map 3: Where the models in the showroom are made</h3>
       <p class="sub">Each model registered in the Energy Rating database records its country of
-        manufacture. Circle size = number of models; colour = their average energy star rating
-        (darker = more efficient).</p>
+        manufacture. Circle area = number of models; colour = their average energy star rating
+        (darker = more efficient). Europe's factories sit close together, so they are enlarged on the right;
+        both maps use the same circle sizes. Where world circles would overlap they are nudged apart, with a thin
+        line to the real country.</p>
       <div id="vis-origins" class="chart"></div>
-      <figcaption>Source: <a href="https://data.gov.au/data/dataset/energy-rating-for-household-appliances">Energy Rating registration data</a>
-        (data.gov.au, downloaded 11 Oct 2026), models sold in Australia and currently available.
-        A model made in several countries is counted once for each.</figcaption>
+      <figcaption>Data: <a href="#d1">D1</a>, <a href="#m2">M2</a>. A model made in several countries is counted once for each.</figcaption>
     </figure>
 
+<div class="row">
     <p>
-      Switch between appliances. China makes the most models of every type. European-made dryers, dishwashers, washing machines and TVs carry more stars on
-      average. Fridges are the exception, where Thailand and China match Europe.
+      Switch between appliances. China makes the most models of every type. European-made dryers,
+      dishwashers, washing machines and TVs carry more stars on average. Fridges are the exception,
+      where Thailand and China match Europe.
     </p>
+    <aside class="note"><b>69%</b><span>of clothes dryer models on sale list China as a place of manufacture [<a href="#d1">D1</a>]</span></aside>
+    </div>
   </div>
 </section>
 
@@ -224,14 +242,18 @@
   <div class="wrap">
     <header class="q-head">
       <span class="q-num">Q4</span>
-      <h2>Is an extra energy star worth it?</h2>
-      <p class="answer">Often, yes. A typical 10-star dryer costs about a quarter as much to run as a 1-star dryer, but stars only compare models of a similar size.</p>
+      <h2>Which brands and star ratings save power?</h2>
+      <p class="answer">Miele, LG, Bosch, Haier, Hisense, Fisher &amp; Paykel and TCL never fall below the typical star
+        rating for any appliance they sell. And stars pay: a typical 10&#8209;star dryer costs about a quarter as much to run as a 1&#8209;star one.</p>
     </header>
+<div class="row">
     <p class="intro">
       Every fridge, washer, dryer, dishwasher and TV sold in Australia carries an energy rating label.
-      More stars means less electricity for a model of that size, and the label also shows the
-      expected kWh (kilowatt-hours, the unit on your power bill) used each year. Do brands differ?
+      More stars means less electricity compared with models of a similar size and features [<a href="#r1">R1</a>], and the label
+      also shows the expected kWh (kilowatt-hours, the unit on your power bill) used each year. Do brands differ?
     </p>
+    <aside class="note"><b>1–10</b><span>stars on the label; more stars means less power than similar-sized models [<a href="#r1">R1</a>]</span></aside>
+    </div>
 
     <figure class="viz">
       <h3>Some brands are consistently greener</h3>
@@ -240,18 +262,20 @@
         they sell). Bottom: every one of the 11,997 models, placed by its yearly energy use in kWh from the label (further right = uses more power) and coloured by its star rating.</p>
       <span class="how">Click a brand to light up its models below. Double-click to clear.</span>
       <div id="vis-brands" class="chart"></div>
-      <figcaption>Source: Energy Rating registration data. "Typical" = median. Star scales differ between
-        appliance types, so brands are only compared within the same type.</figcaption>
+      <figcaption>Data: <a href="#d1">D1</a>. "Typical" means the median. Star scales differ between appliance types, so
+        brands are only compared within one type.</figcaption>
     </figure>
 
+<div class="row">
     <div class="callout">
       <strong>The dryer divide.</strong> Clothes dryers fall into two clusters. Every <em>vented</em> dryer
-      on the register earns 2.5 stars or fewer and typically uses about 306 kWh a year. The 7–10 star models are
-      all condenser dryers, typically using about 135 kWh. The government says an efficient
-      <em>heat-pump</em> dryer uses 60% less energy than a conventional one
-      (<a href="https://www.energyrating.gov.au/consumer-information/products/clothes-dryers">Energy Rating</a>).
-      Brands in the red mostly sell vented or basic 2–3-star condenser dryers, while the typical LG, Miele
-      or Fisher &amp; Paykel dryer has 9 stars.
+      on the register earns 2.5 stars or fewer and typically uses about <strong>306 kWh</strong> a year. The 7–10 star
+      models are all condenser dryers, typically using about <strong>135 kWh</strong>. The government says an efficient
+      <em>heat-pump</em> dryer uses 60% less energy than a conventional one [<a href="#r3">R3</a>].
+      Brands in <span class="k k-red">the red</span> mostly sell vented or basic 2–3-star condenser dryers, while the
+      typical LG, Miele or Fisher &amp; Paykel dryer has 9 stars.
+    </div>
+    <aside class="note"><b>−56%</b><span>typical energy use of a 7–10-star dryer compared with a vented dryer [<a href="#d1">D1</a>]</span></aside>
     </div>
 
     <figure class="viz">
@@ -276,20 +300,19 @@
           it. The whiskers reach the cheapest and dearest models to run.</span>
       </div>
       <div id="vis-cost" class="chart"></div>
-      <figcaption>Source: Energy Rating registration data. Cost = labelled kWh per year × your price.
-        Label figures assume standard use (for example, TVs
-        <a href="https://www.energyrating.gov.au/sites/default/files/2022-12/Retailer-and-tradie-factsheet-TVs-A4.pdf">10 hours a day</a>),
-        so your own costs will vary. 35c default:
-        <a href="https://www.yourhome.gov.au/energy/appliances">YourHome</a>.</figcaption>
+      <figcaption>Data: <a href="#d1">D1</a>. Cost = labelled kWh per year × your price. Labels assume standard use, such as
+        TVs on for 10 hours a day [<a href="#r2">R2</a>], so your own costs will vary.</figcaption>
     </figure>
 
+<div class="row">
     <p>
       For dryers, washing machines and TVs, almost every extra star cuts the bill. A typical 1-star dryer
-      costs about four times as much to run as a typical 10-star dryer. At 35c per kWh, that gap adds
-      up to more than $1,000 over ten years. Fridges are the twist: the government says stars compare models
-      <a href="https://www.energyrating.gov.au/label">"of a similar size and features"</a>,
-      so a huge 4-star fridge can still cost more to run than a small 2-star bar fridge.
+      costs about <strong>four times</strong> as much to run as a typical 10-star dryer. At 35c per kWh, that gap
+      adds up to more than <strong>$1,000</strong> over ten years. Fridges are the twist: stars only compare models
+      "of a similar size and features" [<a href="#r1">R1</a>], so a huge 4-star fridge can still cost more to run than a small 2-star bar fridge.
     </p>
+    <aside class="note"><b>$1,089</b><span>10-year power cost gap between a typical 1-star and 10-star dryer at 35c/kWh [<a href="#d1">D1</a>, <a href="#r4">R4</a>]</span></aside>
+    </div>
   </div>
 </section>
 
@@ -301,12 +324,15 @@
       <h2>Does paying more buy a happier owner?</h2>
       <p class="answer">No. The most expensive fridges and washer-dryers had the lowest average ratings of their category.</p>
     </header>
+<div class="row">
     <p class="intro">
       Australia has no open database of product reviews, so we turn to one of the largest public
       collections: more than 300,000 Amazon reviews of major appliances, gathered by researchers at
       UC San Diego. These shoppers are mostly American, but they buy the same kinds of products, including
       brands sold here such as Samsung, LG, Haier, Midea and Bosch.
     </p>
+    <aside class="note"><b>308,019</b><span>reviews of major appliances, up to September 2023 [<a href="#d5">D5</a>]</span></aside>
+    </div>
 
     <figure class="viz">
       <h3>The pandemic rush, seen through reviews</h3>
@@ -314,8 +340,7 @@
         just bought, so this is a rough stand-in for sales. Wider band = more reviews.</p>
       <span class="how">Click a legend item to highlight it</span>
       <div id="vis-stream" class="chart"></div>
-      <figcaption>Source: <a href="https://amazon-reviews-2023.github.io/">Amazon Reviews 2023</a>, Hou et al., McAuley Lab, UC San Diego.
-        "Appliances" category, major-appliance sub-categories only (parts and accessories excluded). The dataset was collected in 2023, so the final quarters are likely incomplete.</figcaption>
+      <figcaption>Data: <a href="#d5">D5</a>, major appliances only (parts and accessories excluded).</figcaption>
     </figure>
 
     <figure class="viz">
@@ -323,26 +348,33 @@
       <p class="sub">Share of reviews at each star rating, centred on the neutral 3 stars. Unhappy
         reviews extend left of the line and happy ones right. The red number is the share of 1-star reviews.</p>
       <div id="vis-diverge" class="chart"></div>
-      <figcaption>Source: Amazon Reviews 2023 (McAuley Lab). Sorted from fewest to most 1-star reviews.</figcaption>
+      <figcaption>Data: <a href="#d5">D5</a>. Sorted from fewest to most 1-star reviews.</figcaption>
     </figure>
 
+<div class="row">
     <p>
-      Very few people bother to give 3 stars. Owners tend to either love their appliance or be very
-      unhappy with it. Built-in dishwashers are the most divisive: almost half of their reviews are 1-star.
+      Very few people bother to give 3 stars. Owners tend to either <span class="k k-bl">love their appliance</span>
+      or be <span class="k k-red">very unhappy</span> with it. Built-in dishwashers are the most divisive: almost
+      <strong>half</strong> of their reviews are 1-star.
     </p>
+    <aside class="note"><b>49%</b><span>of built-in dishwasher reviews give 1 star [<a href="#d5">D5</a>]</span></aside>
+    </div>
 
     <figure class="viz">
       <h3>Does paying more buy a happier owner?</h3>
-      <p class="sub">Average rating for each price band. Blue = happier than usual, red = less happy.</p>
+      <p class="sub">Average rating for each price band. Blue = happier than usual, red = less happy.
+        Outlined cells are the most expensive fridges and washer-dryers.</p>
       <div id="vis-price" class="chart"></div>
-      <figcaption>Source: Amazon Reviews 2023 (McAuley Lab). Prices in US dollars as listed. Bands with
-        fewer than 30 reviews are left blank.</figcaption>
+      <figcaption>Data: <a href="#d5">D5</a>. Prices in US dollars. Bands with fewer than 30 reviews are left blank.</figcaption>
     </figure>
 
+<div class="row">
     <p>
-      Not really. For fridges and washer-dryers, the most expensive models are among the
-      <em>lowest</em> rated. Mid-priced appliances often score as well as anything.
+      Not really. For fridges and washer-dryers, the most expensive models (outlined) are the
+      <em>lowest</em> rated of their category. Mid-priced appliances often score as well as anything.
     </p>
+    <aside class="note"><b>2.9 / 5</b><span>average rating of fridges priced US$1,000 or more, the lowest fridge price band [<a href="#d5">D5</a>]</span></aside>
+    </div>
   </div>
 </section>
 
@@ -374,61 +406,58 @@
 
 <footer id="sources">
   <div class="wrap">
-    <h2>Data sources</h2>
-    <ul>
-      <li><strong>Energy Rating registration data, labelled products</strong>. Department of Climate Change,
-        Energy, the Environment and Water, via
-        <a href="https://data.gov.au/data/dataset/energy-rating-for-household-appliances">data.gov.au</a>.
-        CC BY 3.0 AU. Downloaded 11 Oct 2026.</li>
-      <li><strong>UN Comtrade</strong>. United Nations Statistics Division,
-        <a href="https://comtradeplus.un.org/">comtradeplus.un.org</a>. Australian imports by HS code (as reported: HS 2012 for 2015–16, HS 2017 for 2017–21, HS 2022 from 2022), 2015–2025. Free public visualisation under the UN Comtrade re-dissemination exception.</li>
-      <li><strong>Monthly Household Spending Indicator</strong> and <strong>National, state and territory population</strong>.
-        Australian Bureau of Statistics, via the <a href="https://www.abs.gov.au/about/data-services/application-programming-interfaces-apis/data-api-user-guide">ABS Data API</a>. CC BY 4.0.</li>
-      <li><strong>Amazon Reviews 2023</strong>. Y. Hou, J. Li, Z. He, A. Yan, X. Chen &amp; J. McAuley (2024),
-        "Bridging Language and Items for Retrieval and Recommendation",
-        <a href="https://arxiv.org/abs/2403.03952">arXiv:2403.03952</a>, McAuley Lab, UC San Diego, citation as requested on
-        <a href="https://amazon-reviews-2023.github.io/">amazon-reviews-2023.github.io</a>. Only aggregated counts are published here.</li>
-      <li><strong>Map boundaries</strong>. Australian states: ABS
-        <a href="https://www.abs.gov.au/statistics/standards/australian-statistical-geography-standard-asgs/edition-3-july-2021-june-2026/access-and-downloads/digital-boundary-files">ASGS Edition 3 (2021) State and Territory boundaries</a>
-        (CC BY 4.0), simplified with mapshaper.
-        World: <a href="https://www.naturalearthdata.com/about/terms-of-use/">Natural Earth</a> 1:110m (public domain) via
-        <a href="https://github.com/topojson/world-atlas">TopoJSON World Atlas</a> and <a href="https://github.com/vega/vega-datasets">vega-datasets</a>.</li>
-    </ul>
-    <p>ABS material is used under CC BY 4.0; charts built from it are "Based on ABS data".</p>
-
-    <h3>Fact-check references</h3>
-    <ul>
-      <li>Energy label meaning ("compared to other models of a similar size and features"; 1 to 10 stars):
-        <a href="https://www.energyrating.gov.au/label">Energy Rating, The Energy Rating Label</a>.</li>
-      <li>TV label assumes 10 hours use per day:
-        <a href="https://www.energyrating.gov.au/sites/default/files/2022-12/Retailer-and-tradie-factsheet-TVs-A4.pdf">Energy Rating TV factsheet</a>.</li>
-      <li>Heat-pump dryers use 60% less energy than conventional dryers:
-        <a href="https://www.energyrating.gov.au/consumer-information/products/clothes-dryers">Energy Rating, Clothes dryers</a>.</li>
-      <li>35c/kWh example tariff: <a href="https://www.yourhome.gov.au/energy/appliances">YourHome, Appliances and technology</a>.</li>
-      <li>Air fryers classified under HS 8516.60: <a href="https://rulings.cbp.gov/ruling/N298195">US Customs and Border Protection ruling N298195</a> (10 July 2018).</li>
-      <li>Black Friday and November spending: ABS media releases for
-        <a href="https://www.abs.gov.au/media-centre/media-releases/household-spending-remains-strong-november">November 2025</a> and
-        <a href="https://www.abs.gov.au/media-centre/media-releases/household-spending-rises-black-friday-sales">November 2024</a>.</li>
-      <li>"Furnishings and household equipment" sub-categories:
-        <a href="https://www.abs.gov.au/statistics/detailed-methodology-information/information-papers/output-and-methodological-updates-monthly-household-spending-indicator">ABS information paper</a>.</li>
-      <li>COVID-19 dates: business closures from 23 March 2020
-        (<a href="https://statements.qld.gov.au/statements/89582">Queensland Government</a>,
-        <a href="https://www.legislation.act.gov.au/ni/2020-169/">ACT direction</a>); Melbourne retail closed 5 August 2020
-        (<a href="https://www.sbs.com.au/news/most-melbourne-retail-businesses-to-close-as-victoria-records-429-new-coronavirus-cases-and-13-deaths">SBS</a>)
-        and reopened 28 October 2020 (<a href="https://www.pbs.org/newshour/world/australias-second-largest-city-ends-111-day-virus-lockdown">AP via PBS</a>);
-        Melbourne's last lockdown ended 21 October 2021
-        (<a href="https://www.sbs.com.au/news/victoria-records-2-232-new-covid-19-cases-as-it-hits-70-per-cent-double-vaccination-target">SBS</a>).</li>
-    </ul>
-    <p>A full log of how every source was checked is in
-      <a href="https://github.com/EasonYeap08/FIT3179-Data-Visualization-2/blob/main/SOURCE_CHANGES.md">SOURCE_CHANGES.md</a>; all resources and the story outline are in
-      <a href="https://github.com/EasonYeap08/FIT3179-Data-Visualization-2/blob/main/RESOURCES.md">RESOURCES.md</a>.</p>
-    <p>Raw files were summarised with <a href="https://github.com/EasonYeap08/FIT3179-Data-Visualization-2/blob/main/scripts/prepare_data.py">scripts/prepare_data.py</a>. Every chart's
-      Vega-Lite specification is in the <a href="https://github.com/EasonYeap08/FIT3179-Data-Visualization-2/tree/main/specs">specs/</a> folder.</p>
-    <p>
-      Created by <strong>Eason</strong> (GitHub: EasonYeap08) for FIT3179 Data Visualisation, Monash University, 12 October 2026.<br>
-      Built with <a href="https://vega.github.io/vega-lite/">Vega-Lite</a>. Fonts: Barlow and Barlow Condensed (Google Fonts).
-      AI assistance (Claude) was used to help write code and text; all data comes from the sources above.
-    </p>
+    <h2>Data and references</h2>
+    <p class="foot-intro">Codes in square brackets on this page, such as [D2] or [R6], point to the entries below.</p>
+    <div class="ref-cols">
+      <section>
+        <h3>Data</h3>
+        <ol class="refs">
+          <li id="d1"><b>D1</b><div><strong>Energy Rating registration data, labelled products</strong>
+            <span>Department of Climate Change, Energy, the Environment and Water, via <a href="https://data.gov.au/data/dataset/energy-rating-for-household-appliances">data.gov.au</a>. CC BY 3.0 AU. Downloaded 11 Oct 2026; models sold in Australia and currently available.</span></div></li>
+          <li id="d2"><b>D2</b><div><strong>UN Comtrade, Australian imports 2015–2025</strong>
+            <span>United Nations Statistics Division, <a href="https://comtradeplus.un.org/">comtradeplus.un.org</a>. HS codes as reported: HS 2012 for 2015–16, HS 2017 for 2017–21, HS 2022 from 2022. Free public visualisation under the UN Comtrade re-dissemination exception.</span></div></li>
+          <li id="d3"><b>D3</b><div><strong>Monthly Household Spending Indicator</strong>
+            <span>"Furnishings and household equipment", current prices, original series. Australian Bureau of Statistics, via the <a href="https://www.abs.gov.au/about/data-services/application-programming-interfaces-apis/data-api-user-guide">ABS Data API</a>. CC BY 4.0.</span></div></li>
+          <li id="d4"><b>D4</b><div><strong>National, state and territory population</strong>
+            <span>Estimated resident population. <a href="https://www.abs.gov.au/statistics/people/population/national-state-and-territory-population">Australian Bureau of Statistics</a>. CC BY 4.0.</span></div></li>
+          <li id="d5"><b>D5</b><div><strong>Amazon Reviews 2023</strong>
+            <span>Y. Hou, J. Li, Z. He, A. Yan, X. Chen &amp; J. McAuley (2024), "Bridging Language and Items for Retrieval and Recommendation", <a href="https://arxiv.org/abs/2403.03952">arXiv:2403.03952</a>. McAuley Lab, UC San Diego, cited as requested on <a href="https://amazon-reviews-2023.github.io/">amazon-reviews-2023.github.io</a>. Only aggregated counts are published here.</span></div></li>
+          <li id="m1"><b>M1</b><div><strong>Australian state boundaries</strong>
+            <span>ABS <a href="https://www.abs.gov.au/statistics/standards/australian-statistical-geography-standard-asgs/edition-3-july-2021-june-2026/access-and-downloads/digital-boundary-files">ASGS Edition 3 (2021)</a>, CC BY 4.0, simplified with mapshaper.</span></div></li>
+          <li id="m2"><b>M2</b><div><strong>World boundaries</strong>
+            <span><a href="https://www.naturalearthdata.com/about/terms-of-use/">Natural Earth</a> 1:110m (public domain), via <a href="https://github.com/topojson/world-atlas">TopoJSON World Atlas</a> and <a href="https://github.com/vega/vega-datasets">vega&#8209;datasets</a>.</span></div></li>
+        </ol>
+        <p class="fine">ABS material is used under CC BY 4.0; charts built from it are "Based on ABS data".</p>
+      </section>
+      <section>
+        <h3>References</h3>
+        <ol class="refs">
+          <li id="r1"><b>R1</b><div><strong><a href="https://www.energyrating.gov.au/label">Energy Rating: The Energy Rating Label</a></strong>
+            <span>Stars compare models "of a similar size and features", from 1 to 10 stars.</span></div></li>
+          <li id="r2"><b>R2</b><div><strong><a href="https://www.energyrating.gov.au/sites/default/files/2022-12/Retailer-and-tradie-factsheet-TVs-A4.pdf">Energy Rating: TV factsheet</a></strong>
+            <span>The TV label assumes 10 hours of use per day.</span></div></li>
+          <li id="r3"><b>R3</b><div><strong><a href="https://www.energyrating.gov.au/consumer-information/products/clothes-dryers">Energy Rating: Clothes dryers</a></strong>
+            <span>An efficient heat-pump dryer uses 60% less energy than a conventional dryer.</span></div></li>
+          <li id="r4"><b>R4</b><div><strong><a href="https://www.yourhome.gov.au/energy/appliances">YourHome: Appliances and technology</a></strong>
+            <span>Running-cost examples use a $0.35/kWh tariff.</span></div></li>
+          <li id="r5"><b>R5</b><div><strong><a href="https://rulings.cbp.gov/ruling/N298195">US Customs and Border Protection: ruling N298195</a></strong>
+            <span>10 July 2018. Air fryers are classified under HS 8516.60.</span></div></li>
+          <li id="r6"><b>R6</b><div><strong>ABS media releases on Black Friday spending</strong>
+            <span><a href="https://www.abs.gov.au/media-centre/media-releases/household-spending-remains-strong-november">November 2025</a> and <a href="https://www.abs.gov.au/media-centre/media-releases/household-spending-rises-black-friday-sales">November 2024</a> household spending.</span></div></li>
+          <li id="r7"><b>R7</b><div><strong><a href="https://www.abs.gov.au/statistics/detailed-methodology-information/information-papers/output-and-methodological-updates-monthly-household-spending-indicator">ABS: Output and methodological updates to the MHSI</a></strong>
+            <span>Sub-categories of "Furnishings and household equipment".</span></div></li>
+          <li id="r8"><b>R8</b><div><strong>COVID-19 dates</strong>
+            <span>Business closures from 23 March 2020 (<a href="https://statements.qld.gov.au/statements/89582">Queensland Government</a>, <a href="https://www.legislation.act.gov.au/ni/2020-169/">ACT direction</a>); Melbourne retail closed 5 August 2020 (<a href="https://www.sbs.com.au/news/most-melbourne-retail-businesses-to-close-as-victoria-records-429-new-coronavirus-cases-and-13-deaths">SBS</a>) and reopened 28 October 2020 (<a href="https://www.pbs.org/newshour/world/australias-second-largest-city-ends-111-day-virus-lockdown">AP via PBS</a>); Melbourne's last lockdown ended 21 October 2021 (<a href="https://www.sbs.com.au/news/victoria-records-2-232-new-covid-19-cases-as-it-hits-70-per-cent-double-vaccination-target">SBS</a>).</span></div></li>
+        </ol>
+      </section>
+    </div>
+    <div class="colophon">
+      <p><strong>Author</strong>
+        Eason (GitHub: EasonYeap08), for FIT3179 Data Visualisation, Monash University, 12 October 2026.</p>
+      <p><strong>Tools and AI</strong>
+        Built with <a href="https://vega.github.io/vega-lite/">Vega-Lite</a>. Fonts: Barlow and Barlow Condensed
+        (Google Fonts). AI assistance (Claude) was used to help write code and text; all data comes from the sources above.</p>
+    </div>
   </div>
 </footer>
 

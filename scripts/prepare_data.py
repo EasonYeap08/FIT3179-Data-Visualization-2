@@ -14,6 +14,7 @@ Run:  python3 scripts/prepare_data.py ../raw
 import collections
 import gzip
 import json
+import math
 import sys
 from datetime import datetime, timezone
 from pathlib import Path
@@ -175,6 +176,78 @@ for _, r in models.iterrows():  # a model made in several countries counts once 
 origins = pd.DataFrame([{
     "country": c, "iso": COUNTRY_ISO[c], "lon": cent[COUNTRY_ISO[c]]["lon"], "lat": cent[COUNTRY_ISO[c]]["lat"],
     "type": t, "models": n, "avg_stars": round(star_sum[(c, t)] / n, 2)} for (c, t), n in orig.items()])
+
+# Map 3 circles overlap in Europe and South-East Asia, so push overlapping circles apart on screen
+# (Dorling-style) and keep the true location for a leader line. Must match specs/06_origin_symbols.vg.json:
+SCALE, ROTATE = 110, -60            # world panel: projection scale and rotate[0] (equalEarth)
+AREA_MIN, AREA_MAX, MODELS_MAX = 6, 1800, 3000  # size scale: linear, [0, MODELS_MAX] -> [AREA_MIN, AREA_MAX] px²
+EUROPE = (-12, 32, 35, 60)          # lon/lat box shown enlarged in its own panel, so it is not nudged
+A1, A2, A3, A4, EM = 1.340264, -0.081106, 0.000893, 0.003796, math.sqrt(3) / 2
+
+
+def equal_earth(lon, lat):  # d3.geoEqualEarthRaw, radians in, unscaled plane out
+    t = math.asin(EM * math.sin(lat))
+    t2, t6 = t * t, t ** 6
+    return (lon * math.cos(t) / (EM * (A1 + 3 * A2 * t2 + t6 * (7 * A3 + 9 * A4 * t2))),
+            t * (A1 + A2 * t2 + t6 * (A3 + A4 * t2)))
+
+
+def equal_earth_inv(x, y):  # Newton's method, as in d3-geo
+    t = y
+    for _ in range(20):
+        t2, t6 = t * t, t ** 6
+        step = (t * (A1 + A2 * t2 + t6 * (A3 + A4 * t2)) - y) / (A1 + 3 * A2 * t2 + t6 * (7 * A3 + 9 * A4 * t2))
+        t -= step
+        if abs(step) < 1e-12:
+            break
+    t2, t6 = t * t, t ** 6
+    return EM * x * (A1 + 3 * A2 * t2 + t6 * (7 * A3 + 9 * A4 * t2)) / math.cos(t), math.asin(math.sin(t) / EM)
+
+
+def to_px(lon, lat):
+    x, y = equal_earth(math.radians(((lon + ROTATE + 180) % 360) - 180), math.radians(lat))
+    return SCALE * x, -SCALE * y
+
+
+def from_px(px, py):
+    lon, lat = equal_earth_inv(px / SCALE, -py / SCALE)
+    return ((math.degrees(lon) - ROTATE + 180) % 360) - 180, math.degrees(lat)
+
+
+def dodge(group):
+    anchors = [to_px(lo, la) for lo, la in zip(group.lon, group.lat)]
+    pos = [list(a) for a in anchors]
+    radii = [math.sqrt((AREA_MIN + (AREA_MAX - AREA_MIN) * m / MODELS_MAX) / math.pi) + 1.5 for m in group.models]
+    for step in range(600):
+        for i in range(len(pos)):
+            for j in range(i + 1, len(pos)):
+                dx, dy = pos[j][0] - pos[i][0], pos[j][1] - pos[i][1]
+                dist = math.hypot(dx, dy) or 1e-6
+                gap = radii[i] + radii[j] - dist
+                if gap > 0:  # the smaller circle moves more
+                    wi = radii[j] ** 2 / (radii[i] ** 2 + radii[j] ** 2)
+                    ux, uy = dx / dist, dy / dist
+                    pos[i][0] -= ux * gap * wi; pos[i][1] -= uy * gap * wi
+                    pos[j][0] += ux * gap * (1 - wi); pos[j][1] += uy * gap * (1 - wi)
+        if step < 500:  # gentle pull home, then a final pass of pure separation
+            for p, a in zip(pos, anchors):
+                p[0] += 0.03 * (a[0] - p[0]); p[1] += 0.03 * (a[1] - p[1])
+    for i in range(len(pos)):  # self-check: no two circles overlap by more than half a pixel
+        for j in range(i + 1, len(pos)):
+            assert math.hypot(pos[j][0] - pos[i][0], pos[j][1] - pos[i][1]) > radii[i] + radii[j] - 0.5
+    out = [from_px(*p) for p in pos]
+    group = group.copy()
+    group["lon_d"] = [round(o[0], 3) for o in out]
+    group["lat_d"] = [round(o[1], 3) for o in out]
+    group["moved_px"] = [round(math.hypot(p[0] - a[0], p[1] - a[1]), 1) for p, a in zip(pos, anchors)]
+    return group
+
+
+in_europe = origins.lon.between(*EUROPE[:2]) & origins.lat.between(*EUROPE[2:])
+origins["panel"] = in_europe.map({True: "Europe", False: "World"})
+europe = origins[in_europe].assign(lon_d=origins.lon, lat_d=origins.lat, moved_px=0.0)
+origins = pd.concat([europe] + [dodge(g) for _, g in origins[~in_europe].groupby("type")])
+assert origins.models.max() <= MODELS_MAX
 origins.sort_values(["type", "models"], ascending=[True, False]).to_csv(OUT / "model_origins.csv", index=False)
 
 # ---------------------------------------------------------------- Amazon reviews

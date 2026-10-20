@@ -8,25 +8,25 @@ const theme = {
   axis: {
     labelColor: "#5b6670",
     titleColor: "#5b6670",
-    labelFontSize: 11,
-    titleFontSize: 12,
+    labelFontSize: 12,
+    titleFontSize: 13,
     titleFontWeight: 500,
-    domainColor: "#d6d4ce",
-    tickColor: "#d6d4ce",
-    gridColor: "#eeede9",
+    domainColor: "#c5ccd2",
+    tickColor: "#c5ccd2",
+    gridColor: "#e8ecee",
     labelLimit: 240
   },
   legend: {
     labelColor: "#5b6670",
-    titleColor: "#1f1f1d",
-    labelFontSize: 11,
-    titleFontSize: 12,
+    titleColor: "#1e252b",
+    labelFontSize: 12,
+    titleFontSize: 13,
     titleFontWeight: 600,
     labelLimit: 300,
     titleLimit: 400
   },
   header: {labelColor: "#1e252b", titleColor: "#1e252b", labelFont: "Barlow Condensed", labelFontSize: 15},
-  text: {color: "#1f1f1d"},
+  text: {color: "#1e252b"},
   tooltipFormat: {numberFormat: ",.0f"}
 };
 
