@@ -15,42 +15,98 @@
       "as": "group"
     }
   ],
-  "params": [
-    {"name": "legendPick", "select": {"type": "point", "fields": ["group"]}, "bind": "legend"}
-  ],
-  "mark": {"type": "area", "interpolate": "basis", "stroke": "#fcfcfb", "strokeWidth": 1},
-  "encoding": {
-    "x": {
-      "field": "date",
-      "timeUnit": "yearquarter",
-      "type": "temporal",
-      "title": null,
-      "axis": {"format": "%Y", "tickCount": 8, "domain": false, "grid": true}
+  "layer": [
+    {
+      "params": [
+        {"name": "legendPick", "select": {"type": "point", "fields": ["group"]}, "bind": "legend"}
+      ],
+      "mark": {"type": "area", "interpolate": "basis", "stroke": "#fcfcfb", "strokeWidth": 1},
+      "encoding": {
+        "x": {
+          "field": "date",
+          "timeUnit": "yearquarter",
+          "type": "temporal",
+          "title": null,
+          "axis": {"format": "%Y", "tickCount": 8, "domain": false, "grid": true}
+        },
+        "y": {
+          "aggregate": "sum",
+          "field": "reviews",
+          "type": "quantitative",
+          "stack": "center",
+          "axis": null
+        },
+        "color": {
+          "field": "group",
+          "type": "nominal",
+          "title": "Click to highlight",
+          "sort": ["Ice makers", "Washers & dryers", "Cooking", "Fridges & freezers", "Dishwashers"],
+          "scale": {
+            "domain": [
+              "Ice makers",
+              "Washers & dryers",
+              "Cooking",
+              "Fridges & freezers",
+              "Dishwashers"
+            ],
+            "range": ["#2a78d6", "#eb6834", "#1baf7a", "#eda100", "#e87ba4"]
+          },
+          "legend": {"orient": "top", "direction": "horizontal", "symbolType": "circle"}
+        },
+        "order": {"field": "group", "sort": "ascending"},
+        "opacity": {"condition": {"param": "legendPick", "value": 0.95}, "value": 0.15},
+        "tooltip": [
+          {"field": "group", "title": "Appliance"},
+          {"field": "date", "timeUnit": "yearquarter", "title": "Quarter"},
+          {"aggregate": "sum", "field": "reviews", "title": "Reviews written", "format": ","}
+        ]
+      }
     },
-    "y": {
-      "aggregate": "sum",
-      "field": "reviews",
-      "type": "quantitative",
-      "stack": "center",
-      "axis": null
-    },
-    "color": {
-      "field": "group",
-      "type": "nominal",
-      "title": "Click to highlight",
-      "sort": ["Ice makers", "Washers & dryers", "Cooking", "Fridges & freezers", "Dishwashers"],
-      "scale": {
-        "domain": ["Ice makers", "Washers & dryers", "Cooking", "Fridges & freezers", "Dishwashers"],
-        "range": ["#2a78d6", "#eb6834", "#1baf7a", "#eda100", "#e87ba4"]
+    {
+      "data": {
+        "values": [
+          {"date": "2020-03-15", "t": "Lockdowns begin, March 2020", "align": "right", "y": 8},
+          {
+            "date": "2022-08-15",
+            "t": "Busiest quarter: Jul–Sep 2022, 2.8× a 2019 quarter",
+            "align": "right",
+            "y": 30
+          }
+        ]
       },
-      "legend": {"orient": "top", "direction": "horizontal", "symbolType": "circle"}
+      "mark": {"type": "rule", "color": "#1e252b", "strokeWidth": 1, "strokeDash": []},
+      "encoding": {
+        "x": {"field": "date", "type": "temporal"},
+        "y": {"field": "y", "type": "quantitative", "scale": null},
+        "y2": {"value": 300}
+      }
     },
-    "order": {"field": "group", "sort": "ascending"},
-    "opacity": {"condition": {"param": "legendPick", "value": 0.95}, "value": 0.15},
-    "tooltip": [
-      {"field": "group", "title": "Appliance"},
-      {"field": "date", "timeUnit": "yearquarter", "title": "Quarter"},
-      {"aggregate": "sum", "field": "reviews", "title": "Reviews written", "format": ","}
-    ]
-  }
+    {
+      "data": {
+        "values": [
+          {"date": "2020-03-15", "t": "Lockdowns begin, March 2020", "align": "right", "y": 8},
+          {
+            "date": "2022-08-15",
+            "t": "Busiest quarter: Jul–Sep 2022, 2.8× a 2019 quarter",
+            "align": "right",
+            "y": 30
+          }
+        ]
+      },
+      "mark": {
+        "type": "text",
+        "align": "right",
+        "dx": -4,
+        "fontSize": 12,
+        "fontWeight": 600,
+        "color": "#1e252b",
+        "baseline": "top"
+      },
+      "encoding": {
+        "x": {"field": "date", "type": "temporal"},
+        "y": {"field": "y", "type": "quantitative", "scale": null},
+        "text": {"field": "t"}
+      }
+    }
+  ]
 }
