@@ -167,7 +167,7 @@
           "x": {
             "field": "kwh",
             "type": "quantitative",
-            "title": null,
+            "title": "kWh per year",
             "scale": {"zero": false, "nice": true},
             "axis": {"grid": false, "tickCount": 8}
           },

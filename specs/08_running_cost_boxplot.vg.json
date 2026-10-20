@@ -1,6 +1,6 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "description": "Box plot: yearly electricity cost of every model for sale, grouped by star rating, at a price the reader chooses (Energy Rating registration data).",
+  "description": "Box plot: yearly electricity cost of every model for sale, grouped by star rating, at a price the reader chooses (Energy Rating registration data). The y-axis is fixed per appliance (top = its most power-hungry model at the 60c slider maximum), so moving the price slider moves the boxes, not the axis.",
   "width": "container",
   "height": 340,
   "params": [
@@ -70,7 +70,12 @@
           "type": "quantitative",
           "title": "Electricity cost per year ($)",
           "axis": {"format": "$,.0f"},
-          "scale": {"zero": true}
+          "scale": {
+            "domain": {
+              "expr": "[0, kind == 'Televisions' ? 1600 : kind == 'Washing machines' ? 750 : kind == 'Fridges & freezers' ? 400 : kind == 'Clothes dryers' ? 300 : 200]"
+            },
+            "nice": false
+          }
         }
       }
     },
