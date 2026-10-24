@@ -175,16 +175,21 @@
           "color": {
             "field": "stars",
             "type": "quantitative",
-            "title": "Energy stars",
+            "title": "Energy stars (lighter = fewer)",
             "scale": {
-              "domain": [1, 4, 10],
-              "range": ["#eb6834", "#c7c4bd", "#1c5cab"],
-              "interpolate": "lab"
+              "type": "threshold",
+              "domain": [3, 5, 7],
+              "range": ["#86b6ef", "#3987e5", "#1c5cab", "#0d366b"]
             },
-            "legend": {"orient": "top", "direction": "horizontal", "gradientLength": 200}
+            "legend": {
+              "orient": "top",
+              "direction": "horizontal",
+              "gradientLength": 200,
+              "labelExpr": "isFinite(datum.value) ? datum.value + '★' : ''"
+            }
           },
           "opacity": {
-            "condition": {"param": "brandPick", "empty": true, "value": 0.6},
+            "condition": {"param": "brandPick", "empty": true, "value": 0.8},
             "value": 0.04
           },
           "size": {"condition": {"param": "brandPick", "empty": false, "value": 30}, "value": 14},
